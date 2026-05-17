@@ -9,10 +9,10 @@ on:
       environment:
         description: GitHub environment to deploy
         required: true
-        default: development
+        default: dev
         type: choice
         options:
-          - development
+          - dev
           - production
   push:
     branches: [main]

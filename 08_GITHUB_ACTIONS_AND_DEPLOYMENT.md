@@ -18,14 +18,14 @@ Avoid a permanent `develop` branch for v1 unless collaboration or release comple
 
 Use GitHub Environments:
 
-- `development`
+- `dev`
 - `production`
 
 Domains are TBD.
 
 ```text
 Production domain: TBD
-Development domain: TBD
+Dev domain: TBD
 ```
 
 ## Required GitHub environment configuration
@@ -44,7 +44,7 @@ And this environment secret:
 DREAMHOST_SSH_KEY
 ```
 
-For `development`, create these environment variables:
+For `dev`, create these environment variables:
 
 ```text
 DREAMHOST_HOST
@@ -168,10 +168,10 @@ on:
       environment:
         description: "Deployment environment"
         required: true
-        default: "development"
+        default: "dev"
         type: choice
         options:
-          - development
+          - dev
           - production
 
 jobs:
@@ -249,7 +249,7 @@ Use placeholders until real values are known:
 
 ```text
 production DREAMHOST_TARGET_PATH=/home/USERNAME/DOMAIN/
-development DREAMHOST_TARGET_PATH=/home/USERNAME/DEV_DOMAIN/
+dev DREAMHOST_TARGET_PATH=/home/USERNAME/DEV_DOMAIN/
 ```
 
 ## Artifact behavior

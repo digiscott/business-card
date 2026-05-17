@@ -76,7 +76,7 @@ Configure this secret in each deployment environment:
 Suggested target path placeholders:
 
 - Production: `/home/USERNAME/DOMAIN/`
-- Development: `/home/USERNAME/DEV_DOMAIN/`
+- Dev: `/home/USERNAME/DEV_DOMAIN/`
 
 Use `--delete` only when `DREAMHOST_TARGET_PATH` is dedicated to this site.
 
