@@ -1,15 +1,18 @@
 name: Deploy static site
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   workflow_dispatch:
     inputs:
       environment:
         description: GitHub environment to deploy
         required: true
-        default: development
+        default: dev
         type: choice
         options:
-          - development
+          - dev
           - production
   push:
     branches: [main]
@@ -27,7 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
         run: npm install
@@ -56,11 +58,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.DREAMHOST_SSH_KEY }}" > ~/.ssh/dreamhost_key
           chmod 600 ~/.ssh/dreamhost_key
-          ssh-keyscan -p "${{ secrets.DREAMHOST_PORT || '22' }}" "${{ secrets.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p "${{ vars.DREAMHOST_PORT || '22' }}" "${{ vars.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Deploy to DreamHost
         run: |
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ secrets.DREAMHOST_PORT || '22' }}" \
+            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ vars.DREAMHOST_PORT || '22' }}" \
             out/ \
-            "${{ secrets.DREAMHOST_USER }}@${{ secrets.DREAMHOST_HOST }}:${{ secrets.DREAMHOST_TARGET_PATH }}"
+            "${{ vars.DREAMHOST_USER }}@${{ vars.DREAMHOST_HOST }}:${{ vars.DREAMHOST_TARGET_PATH }}"

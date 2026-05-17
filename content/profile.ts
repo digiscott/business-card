@@ -67,7 +67,7 @@ export const profile: Profile = {
   ],
   linkedInUrl: "https://www.linkedin.com/in/scott-whitlock/",
   resumeUrl: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
-  careerAdvocateUrl: "https://example.com/scott-whitlock-career-advocate",
+  careerAdvocateUrl: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
   emailHref: "mailto:REPLACE_WITH_EMAIL",
   phoneHref: "tel:REPLACE_WITH_PHONE",
   headshotUrl: "/images/headshot-placeholder.svg",
@@ -152,7 +152,7 @@ export const profile: Profile = {
     },
     {
       label: "Ask Scott's Career Advocate",
-      href: "https://example.com/scott-whitlock-career-advocate",
+      href: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
       description: "Guided Q&A grounded in approved career materials.",
       external: true,
     },

@@ -18,37 +18,47 @@ Avoid a permanent `develop` branch for v1 unless collaboration or release comple
 
 Use GitHub Environments:
 
-- `development`
+- `dev`
 - `production`
 
 Domains are TBD.
 
 ```text
 Production domain: TBD
-Development domain: TBD
+Dev domain: TBD
 ```
 
-## Required GitHub environment secrets
+## Required GitHub environment configuration
 
-For `production`:
+For `production`, create these environment variables:
 
 ```text
 DREAMHOST_HOST
 DREAMHOST_USER
-DREAMHOST_SSH_KEY
 DREAMHOST_TARGET_PATH
 ```
 
-For `development`:
+And this environment secret:
+
+```text
+DREAMHOST_SSH_KEY
+```
+
+For `dev`, create these environment variables:
 
 ```text
 DREAMHOST_HOST
 DREAMHOST_USER
-DREAMHOST_SSH_KEY
 DREAMHOST_TARGET_PATH
 ```
 
-Optional:
+And this environment secret:
+
+```text
+DREAMHOST_SSH_KEY
+```
+
+Optional environment variable for both environments:
 
 ```text
 DREAMHOST_PORT
@@ -84,10 +94,15 @@ Suggested steps:
 6. Test
 7. Build static export
 
+Dependency caching is intentionally omitted until the repo includes a supported lock file such as `package-lock.json`.
+
 Suggested workflow:
 
 ```yaml
 name: CI
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   pull_request:
@@ -105,10 +120,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Lint
         run: npm run lint
@@ -143,6 +157,9 @@ Suggested workflow:
 ```yaml
 name: Build and Deploy
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches: [main]
@@ -151,10 +168,10 @@ on:
       environment:
         description: "Deployment environment"
         required: true
-        default: "development"
+        default: "dev"
         type: choice
         options:
-          - development
+          - dev
           - production
 
 jobs:
@@ -170,10 +187,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Lint
         run: npm run lint
@@ -199,14 +215,14 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.DREAMHOST_SSH_KEY }}" > ~/.ssh/dreamhost_key
           chmod 600 ~/.ssh/dreamhost_key
-          ssh-keyscan -p "${{ secrets.DREAMHOST_PORT || '22' }}" "${{ secrets.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p "${{ vars.DREAMHOST_PORT || '22' }}" "${{ vars.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Deploy to DreamHost
         run: |
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ secrets.DREAMHOST_PORT || '22' }}" \
+            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ vars.DREAMHOST_PORT || '22' }}" \
             out/ \
-            "${{ secrets.DREAMHOST_USER }}@${{ secrets.DREAMHOST_HOST }}:${{ secrets.DREAMHOST_TARGET_PATH }}"
+            "${{ vars.DREAMHOST_USER }}@${{ vars.DREAMHOST_HOST }}:${{ vars.DREAMHOST_TARGET_PATH }}"
 ```
 
 ## Important rsync caution
@@ -222,7 +238,7 @@ Before enabling deployment:
 - Confirm DreamHost SSH access.
 - Confirm static web directory path.
 - Confirm dev and production target paths are separate.
-- Add GitHub environment secrets.
+- Add GitHub environment variables and secrets.
 - Test manual dev deployment first.
 - Confirm production domain points to the correct DreamHost directory.
 - Confirm merge to `main` deploys production.
@@ -233,7 +249,7 @@ Use placeholders until real values are known:
 
 ```text
 production DREAMHOST_TARGET_PATH=/home/USERNAME/DOMAIN/
-development DREAMHOST_TARGET_PATH=/home/USERNAME/DEV_DOMAIN/
+dev DREAMHOST_TARGET_PATH=/home/USERNAME/DEV_DOMAIN/
 ```
 
 ## Artifact behavior

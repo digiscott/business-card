@@ -51,7 +51,7 @@ Do not place full email or phone values in visible page copy. Use `mailto:` and 
 
 - Resume: replace `public/resume/Scott-Whitlock-Product-Manager-Resume.pdf` with the final PDF while keeping the same filename, or update `profile.resumeUrl`.
 - Headshot: replace `public/images/headshot-placeholder.svg` with a final image and update `profile.headshotUrl` if the filename changes.
-- Career Advocate: replace the placeholder `profile.careerAdvocateUrl` with the production chatbot URL.
+- Career Advocate: `profile.careerAdvocateUrl` points to the production chatbot URL.
 
 ## CI/CD
 
@@ -60,20 +60,23 @@ GitHub Actions workflows are in `.github/workflows/`:
 - `ci.yml` runs lint, typecheck, tests, build, and uploads `out/` as `static-site`.
 - `deploy.yml` runs the same checks, uploads `out/`, and deploys to DreamHost with `rsync`.
 
-## Required GitHub secrets
+## Required GitHub environment configuration
 
-Configure these secrets in the appropriate GitHub environments before deploying:
+Configure these variables in the appropriate GitHub environments before deploying:
 
 - `DREAMHOST_HOST`
 - `DREAMHOST_USER`
-- `DREAMHOST_SSH_KEY`
 - `DREAMHOST_TARGET_PATH`
 - `DREAMHOST_PORT` (optional; defaults to `22`)
+
+Configure this secret in each deployment environment:
+
+- `DREAMHOST_SSH_KEY`
 
 Suggested target path placeholders:
 
 - Production: `/home/USERNAME/DOMAIN/`
-- Development: `/home/USERNAME/DEV_DOMAIN/`
+- Dev: `/home/USERNAME/DEV_DOMAIN/`
 
 Use `--delete` only when `DREAMHOST_TARGET_PATH` is dedicated to this site.
 
