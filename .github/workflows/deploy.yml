@@ -1,0 +1,66 @@
+name: Deploy static site
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: GitHub environment to deploy
+        required: true
+        default: development
+        type: choice
+        options:
+          - development
+          - production
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Build and deploy to DreamHost
+    runs-on: ubuntu-latest
+    environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environment || 'production' }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Upload static site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: out/
+          if-no-files-found: error
+
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DREAMHOST_SSH_KEY }}" > ~/.ssh/dreamhost_key
+          chmod 600 ~/.ssh/dreamhost_key
+          ssh-keyscan -p "${{ secrets.DREAMHOST_PORT || '22' }}" "${{ secrets.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy to DreamHost
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ secrets.DREAMHOST_PORT || '22' }}" \
+            out/ \
+            "${{ secrets.DREAMHOST_USER }}@${{ secrets.DREAMHOST_HOST }}:${{ secrets.DREAMHOST_TARGET_PATH }}"
