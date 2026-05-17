@@ -27,7 +27,12 @@ describe("profile content", () => {
   it("has required links", () => {
     expect(profile.linkedInUrl).toContain("linkedin.com/in/scott-whitlock");
     expect(profile.resumeUrl).toMatch(/\.pdf$/);
-    expect(profile.careerAdvocateUrl).toBeTruthy();
+    expect(profile.careerAdvocateUrl).toBe(
+      "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
+    );
+    expect(profile.learnMoreLinks.find((link) => link.label === "Ask Scott's Career Advocate")?.href).toBe(
+      profile.careerAdvocateUrl,
+    );
     expect(profile.emailHref).toMatch(/^mailto:/);
     expect(profile.phoneHref).toMatch(/^tel:/);
   });
