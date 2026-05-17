@@ -28,27 +28,37 @@ Production domain: TBD
 Development domain: TBD
 ```
 
-## Required GitHub environment secrets
+## Required GitHub environment configuration
 
-For `production`:
-
-```text
-DREAMHOST_HOST
-DREAMHOST_USER
-DREAMHOST_SSH_KEY
-DREAMHOST_TARGET_PATH
-```
-
-For `development`:
+For `production`, create these environment variables:
 
 ```text
 DREAMHOST_HOST
 DREAMHOST_USER
-DREAMHOST_SSH_KEY
 DREAMHOST_TARGET_PATH
 ```
 
-Optional:
+And this environment secret:
+
+```text
+DREAMHOST_SSH_KEY
+```
+
+For `development`, create these environment variables:
+
+```text
+DREAMHOST_HOST
+DREAMHOST_USER
+DREAMHOST_TARGET_PATH
+```
+
+And this environment secret:
+
+```text
+DREAMHOST_SSH_KEY
+```
+
+Optional environment variable for both environments:
 
 ```text
 DREAMHOST_PORT
@@ -199,14 +209,14 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.DREAMHOST_SSH_KEY }}" > ~/.ssh/dreamhost_key
           chmod 600 ~/.ssh/dreamhost_key
-          ssh-keyscan -p "${{ secrets.DREAMHOST_PORT || '22' }}" "${{ secrets.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p "${{ vars.DREAMHOST_PORT || '22' }}" "${{ vars.DREAMHOST_HOST }}" >> ~/.ssh/known_hosts
 
       - name: Deploy to DreamHost
         run: |
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ secrets.DREAMHOST_PORT || '22' }}" \
+            -e "ssh -i ~/.ssh/dreamhost_key -p ${{ vars.DREAMHOST_PORT || '22' }}" \
             out/ \
-            "${{ secrets.DREAMHOST_USER }}@${{ secrets.DREAMHOST_HOST }}:${{ secrets.DREAMHOST_TARGET_PATH }}"
+            "${{ vars.DREAMHOST_USER }}@${{ vars.DREAMHOST_HOST }}:${{ vars.DREAMHOST_TARGET_PATH }}"
 ```
 
 ## Important rsync caution
@@ -222,7 +232,7 @@ Before enabling deployment:
 - Confirm DreamHost SSH access.
 - Confirm static web directory path.
 - Confirm dev and production target paths are separate.
-- Add GitHub environment secrets.
+- Add GitHub environment variables and secrets.
 - Test manual dev deployment first.
 - Confirm production domain points to the correct DreamHost directory.
 - Confirm merge to `main` deploys production.
