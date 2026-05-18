@@ -25,6 +25,8 @@ export type Profile = {
   shortBio: string;
   focusAreas: string[];
   linkedInUrl: string;
+  githubUrl: string;
+  careerSiteRepositoryUrl: string;
   resumeUrl: string;
   careerAdvocateUrl: string;
   emailHref: string;
@@ -66,6 +68,8 @@ export const profile: Profile = {
     "Technical collaboration",
   ],
   linkedInUrl: "https://www.linkedin.com/in/scott-whitlock/",
+  githubUrl: "https://github.com/digiscott",
+  careerSiteRepositoryUrl: "https://github.com/digiscott/business-card",
   resumeUrl: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
   careerAdvocateUrl: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
   emailHref: "mailto:REPLACE_WITH_EMAIL",
@@ -143,6 +147,18 @@ export const profile: Profile = {
       label: "View LinkedIn",
       href: "https://www.linkedin.com/in/scott-whitlock/",
       description: "Career history, roles, skills, and recommendations.",
+      external: true,
+    },
+    {
+      label: "View GitHub",
+      href: "https://github.com/digiscott",
+      description: "Public GitHub profile for code and technical exploration.",
+      external: true,
+    },
+    {
+      label: "Career Site Repo",
+      href: "https://github.com/digiscott/business-card",
+      description: "Source repository for this static Product Management career site.",
       external: true,
     },
     {

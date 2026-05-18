@@ -25,7 +25,7 @@ const jsonLd = {
   jobTitle: profile.role,
   description: profile.positioning,
   url: "https://example.com",
-  sameAs: [profile.linkedInUrl],
+  sameAs: [profile.linkedInUrl, profile.githubUrl],
   knowsAbout: profile.focusAreas,
 };
 
