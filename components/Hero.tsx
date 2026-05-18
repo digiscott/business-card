@@ -33,7 +33,7 @@ export function Hero({ profile }: HeroProps) {
         </a>
       </div>
       <div className="rounded-[2rem] border border-ink/10 bg-white/70 p-6 shadow-soft dark:border-white/10 dark:bg-white/10">
-        <Image className="mx-auto aspect-square w-full max-w-sm rounded-[1.5rem] object-cover" src={profile.headshotUrl} alt="Headshot placeholder for Scott Whitlock" width={600} height={600} priority />
+        <Image className="mx-auto aspect-square w-full max-w-sm rounded-[1.5rem] object-cover" src={profile.headshotUrl} alt="Illustrated profile portrait of Scott Whitlock" width={600} height={600} priority />
       </div>
     </section>
   );

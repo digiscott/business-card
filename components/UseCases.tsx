@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Profile, UseCase } from "../content/profile";
 
 type Props = {
@@ -37,9 +38,15 @@ function UseCaseCard({ useCase }: UseCaseCardProps) {
         </ul>
       ) : null}
       {useCase.href && useCase.linkLabel ? (
-        <a className="mt-5 inline-flex font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent" href={useCase.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
-          {useCase.linkLabel} →
-        </a>
+        isExternal ? (
+          <a className="mt-5 inline-flex font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent" href={useCase.href} rel="noopener noreferrer" target="_blank">
+            {useCase.linkLabel} →
+          </a>
+        ) : (
+          <Link className="mt-5 inline-flex font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent" href={useCase.href}>
+            {useCase.linkLabel} →
+          </Link>
+        )
       ) : null}
     </article>
   );
@@ -50,9 +57,9 @@ export function UseCases({ profile }: Props) {
     <section id="use-cases" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="max-w-3xl">
         <p className="text-sm font-black uppercase tracking-wider text-accent">Use Cases</p>
-        <h2 className="mt-3 text-4xl font-black text-ink dark:text-white">How I Work in Practice</h2>
+        <h2 className="mt-3 text-4xl font-black text-ink dark:text-white">How Scott Works in Practice</h2>
         <p className="mt-5 text-lg leading-8 text-ink/75 dark:text-white/75">
-          These examples show how Scott uses product thinking, design judgment, technical collaboration, and AI-assisted workflows to move from idea to usable artifact.
+          These examples show how Scott uses product thinking, design judgment, technical collaboration, and AI-assisted workflows across portfolio, app concept, desktop experience, and healthcare product contexts.
         </p>
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

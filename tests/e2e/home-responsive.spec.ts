@@ -18,8 +18,17 @@ test.describe("home page responsive UI", () => {
     await expect(page.getByRole("heading", { name: "Scott Whitlock" })).toBeVisible();
     await expect(page.getByText("Available for remote or Cincinnati-area Product Manager roles.")).toBeVisible();
     await expect(page.getByRole("heading", { name: "What I Bring" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "How I Work in Practice" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "How Scott Works in Practice" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Choose the Best Next Step" })).toBeVisible();
+
+    await expect(page.getByRole("heading", { name: "Tic Tac Pro Game App" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Tabletop Game Library Manager" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Desktop Buddy" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Exam Room Education" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "View use case" }).first()).toHaveAttribute(
+      "href",
+      "/use-cases/portfolio-site-ai-career-advocate",
+    );
     await expect(page.getByRole("heading", { name: "Start a direct conversation with Scott." })).toBeVisible();
 
     for (const link of requiredLinks) {
