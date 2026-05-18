@@ -56,7 +56,15 @@ describe("profile content", () => {
   it("has simplified capability and use case content", () => {
     expect(profile.capabilities).toHaveLength(4);
     expect(profile.useCases.length).toBeGreaterThanOrEqual(3);
-    expect(profile.useCases.map((useCase) => useCase.title)).toContain("Career Site and AI Career Advocate");
+    expect(profile.useCases.map((useCase) => useCase.title)).toEqual(
+      expect.arrayContaining([
+        "Portfolio Site and AI Career Advocate",
+        "Tic Tac Pro Game App",
+        "Tabletop Game Library Manager",
+        "Desktop Buddy",
+        "Exam Room Education",
+      ]),
+    );
     expect(profile.metadata.title).toBeTruthy();
     expect(profile.metadata.description).toBeTruthy();
   });
