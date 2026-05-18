@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { profile } from "../content/profile";
 import { themeInitScript } from "../lib/theme";
+import { GoogleTagManager } from "../components/GoogleTagManager";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,6 +39,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       </head>
       <body className="antialiased">
         {children}
+        {process.env.NEXT_PUBLIC_GTM_ID ? (
+          <GoogleTagManager tagManagerId={process.env.NEXT_PUBLIC_GTM_ID} />
+        ) : null}
       </body>
     </html>
   );
