@@ -32,6 +32,8 @@ export type UseCaseDetail = {
   headline: string;
   summary: string;
   snapshot: { label: string; value: string }[];
+  imagePlaceholders: { title: string; type: "UX flow" | "Wireframe" | "Diagram" }[];
+  productLinks?: { label: string; href: string }[];
   sections: UseCaseSection[];
   outcome: string;
   visual: UseCaseVisual;
@@ -170,6 +172,11 @@ export const profile: Profile = {
           { label: "Platform", value: "Next.js static export" },
           { label: "Status", value: "Live portfolio leavebehind" },
         ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
+        ],
         sections: [
           {
             title: "The challenge",
@@ -218,6 +225,11 @@ export const profile: Profile = {
           { label: "Platform direction", value: "Web, iOS, Android" },
           { label: "Technical direction", value: "Shared Expo / React Native codebase" },
         ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
+        ],
         sections: [
           {
             title: "The challenge",
@@ -265,6 +277,11 @@ export const profile: Profile = {
           { label: "Focus", value: "PRD writing, MVP definition, user workflows, feature prioritization" },
           { label: "Core question", value: "What is owned, what has been played, and what should be played next?" },
           { label: "Status", value: "Product strategy and PRD foundation" },
+        ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
         ],
         sections: [
           {
@@ -315,6 +332,11 @@ export const profile: Profile = {
           { label: "Product question", value: "How can an assistant be helpful without becoming noisy?" },
           { label: "Status", value: "Concept and product direction" },
         ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
+        ],
         sections: [
           {
             title: "The challenge",
@@ -363,6 +385,17 @@ export const profile: Profile = {
           { label: "Users", value: "Patients, providers, clinical and content teams" },
           { label: "Contribution", value: "Requirements, workflows, internal tooling, cross-functional delivery" },
         ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
+        ],
+        productLinks: [
+          {
+            label: "PatientPoint Exam Room",
+            href: "https://patientpoint.com/healthcare-provider/exam-room/",
+          },
+        ],
         sections: [
           {
             title: "The problem",
@@ -405,6 +438,17 @@ export const profile: Profile = {
           { label: "Users", value: "Practice staff, operations teams, content teams" },
           { label: "Contribution", value: "Requirements, workflow clarity, stakeholder communication" },
         ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
+        ],
+        productLinks: [
+          {
+            label: "PatientPoint Practice Engagement",
+            href: "https://patientpoint.com/healthcare-provider/practice-engagement/",
+          },
+        ],
         sections: [
           {
             title: "The problem",
@@ -446,6 +490,17 @@ export const profile: Profile = {
           { label: "Focus", value: "Product strategy, data-informed workflows, platform thinking" },
           { label: "Channels", value: "Point-of-care and digital patient touchpoints" },
           { label: "Contribution", value: "Workflow implications, metadata, content systems, platform alignment" },
+        ],
+        imagePlaceholders: [
+          { title: "Primary UX flow", type: "UX flow" },
+          { title: "Interaction wireframe", type: "Wireframe" },
+          { title: "System relationship diagram", type: "Diagram" },
+        ],
+        productLinks: [
+          {
+            label: "PatientPoint Precision",
+            href: "https://lifesciences.patientpoint.com/patientpoint-precision/",
+          },
         ],
         sections: [
           {

@@ -46,12 +46,20 @@ export default async function UseCasePage({ params }: Props) {
       <Header />
       <main>
         <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <Link
-            className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
-            href="/#use-cases"
-          >
-            ← Back to use cases
-          </Link>
+          <div className="sticky top-20 z-30 mb-6 flex flex-wrap gap-3 rounded-2xl border border-ink/10 bg-paper/90 p-3 backdrop-blur dark:border-white/10 dark:bg-ink/85">
+            <Link
+              className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
+              href="/#use-cases"
+            >
+              ← Back to use cases
+            </Link>
+            <Link
+              className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
+              href="/"
+            >
+              Close ×
+            </Link>
+          </div>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
@@ -112,10 +120,67 @@ export default async function UseCasePage({ params }: Props) {
             ))}
           </div>
 
+          <section className="mt-10 rounded-[1.5rem] border border-ink/10 bg-white/70 p-6 dark:border-white/10 dark:bg-white/10">
+            <h2 className="text-2xl font-black text-ink dark:text-white">Visual placeholders</h2>
+            <p className="mt-3 text-ink/70 dark:text-white/70">
+              Temporary in-body visuals for UX examples and workflow diagrams.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {useCase.detail.imagePlaceholders.map((image) => (
+                <figure
+                  className="rounded-2xl border border-ink/10 bg-gradient-to-br from-accent/15 to-copper/10 p-4 dark:border-white/10 dark:from-cyan-200/15 dark:to-orange-200/10"
+                  key={image.title}
+                >
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-dashed border-ink/20 bg-white/70 text-center text-sm font-bold uppercase tracking-wide text-ink/70 dark:border-white/25 dark:bg-ink/50 dark:text-white/70">
+                    {image.type}
+                  </div>
+                  <figcaption className="mt-3 text-sm font-semibold text-ink/80 dark:text-white/80">
+                    {image.title}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          {useCase.detail.productLinks?.length ? (
+            <section className="mt-6 rounded-[1.5rem] border border-ink/10 bg-white/70 p-6 dark:border-white/10 dark:bg-white/10">
+              <h2 className="text-2xl font-black text-ink dark:text-white">Related PatientPoint products</h2>
+              <ul className="mt-4 space-y-3">
+                {useCase.detail.productLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      className="inline-flex items-center gap-2 font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent"
+                      href={link.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {link.label} ↗
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
           <section className="mt-6 rounded-[1.5rem] border border-accent/20 bg-accent/10 p-6 dark:border-cyan-200/20 dark:bg-cyan-200/10">
             <h2 className="text-2xl font-black text-ink dark:text-white">Outcome</h2>
             <p className="mt-4 text-lg leading-8 text-ink/75 dark:text-white/75">{useCase.detail.outcome}</p>
           </section>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
+              href="/#use-cases"
+            >
+              ← Back to use cases
+            </Link>
+            <Link
+              className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
+              href="/"
+            >
+              Close ×
+            </Link>
+          </div>
         </article>
       </main>
       <Footer profile={profile} />
