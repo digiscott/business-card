@@ -32,4 +32,23 @@ test.describe("home page responsive UI", () => {
       fullPage: true,
     });
   });
+
+  test("keeps primary navigation collapsed but accessible on mobile", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/");
+
+    const menu = page.getByText("Menu", { exact: true });
+    await expect(menu).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Mobile primary navigation" })).toBeHidden();
+
+    await menu.click();
+
+    const mobileNavigation = page.getByRole("navigation", { name: "Mobile primary navigation" });
+    await expect(mobileNavigation).toBeVisible();
+    await expect(mobileNavigation.getByRole("link", { name: "Career Advocate" })).toBeVisible();
+    await expect(mobileNavigation.getByRole("link", { name: "Contact" })).toBeVisible();
+
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(1);
+  });
 });
