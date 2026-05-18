@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { profile } from "../content/profile";
 import { themeInitScript } from "../lib/theme";
+import { GoogleAnalytics } from "../components/GoogleAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,6 +39,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       </head>
       <body className="antialiased">
         {children}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ? (
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        ) : null}
       </body>
     </html>
   );
