@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrated profile portrait of Scott Whitlock</title>
+  <desc id="desc">Warm hand-drawn style portrait with glasses, beard, dark hoodie, and peach background.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9a687" />
+      <stop offset="0.55" stop-color="#efbc9c" />
+      <stop offset="1" stop-color="#f3a97d" />
+    </linearGradient>
+    <linearGradient id="hoodie" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#2e3838" />
+      <stop offset="1" stop-color="#151d1f" />
+    </linearGradient>
+    <linearGradient id="beard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a3329" />
+      <stop offset="1" stop-color="#1f1714" />
+    </linearGradient>
+    <filter id="softInk" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#4b2f25" flood-opacity="0.22" />
+    </filter>
+    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(5)">
+      <path d="M2 0v10" stroke="#15100e" stroke-width="1.8" opacity="0.48" />
+    </pattern>
+  </defs>
+
+  <rect width="600" height="600" rx="42" fill="url(#paper)" />
+  <path d="M0 0h600v600H0z" fill="#f7d8c4" opacity="0.12" />
+  <path d="M44 76c86-36 176-44 270-26 98 19 176 4 242-27" fill="none" stroke="#ffffff" stroke-width="34" opacity="0.08" />
+
+  <g filter="url(#softInk)">
+    <path d="M72 560c18-64 53-112 106-143 44-26 88-38 132-38 50 0 96 11 138 34 53 30 84 79 96 147Z" fill="url(#hoodie)" />
+    <path d="M156 439c43 16 88 24 136 24 59 0 110-12 154-36l24 132H126Z" fill="#222b2c" opacity="0.88" />
+    <path d="M232 438c24 16 48 24 73 24 25 0 50-8 75-24l25 122H207Z" fill="#2f8993" opacity="0.72" />
+
+    <path d="M186 206c2-58 17-102 47-132 27-26 63-39 107-36 43 3 75 19 97 49 25 34 36 83 32 147l-10 152c-3 45-21 81-53 107-29 24-64 36-103 36-41 0-76-13-106-39-32-28-49-66-51-113Z" fill="#b99372" />
+    <path d="M190 206c8-56 28-96 60-120 28-21 62-30 102-27 41 4 72 22 94 56 18 28 26 68 23 119l-6 81c-19-38-35-63-49-76-30-29-68-43-113-42-44 1-81 14-111 39Z" fill="#b48b6a" opacity="0.48" />
+
+    <path d="M176 179c10-55 33-96 68-123 30-22 67-31 111-27 43 4 77 21 102 49 21 24 34 57 39 99-47-29-101-43-163-43-58 0-111 15-157 45Z" fill="#2a211c" />
+    <path d="M167 190c32-38 70-62 114-73 49-12 99-5 151 21" fill="none" stroke="#15100e" stroke-width="9" stroke-linecap="round" />
+    <path d="M185 170c23-50 59-79 108-88 52-10 100 7 144 50" fill="url(#hatch)" opacity="0.7" />
+
+    <path d="M192 318c26 35 64 53 114 53 51 0 90-18 117-53l-14 99c-7 49-43 87-102 87-60 0-97-39-105-88Z" fill="url(#beard)" />
+    <path d="M198 337c25 44 61 66 108 66s84-22 109-66" fill="none" stroke="#120d0b" stroke-width="4" opacity="0.55" />
+    <path d="M254 370c32 10 65 10 98 0" fill="none" stroke="#120d0b" stroke-width="8" stroke-linecap="round" />
+
+    <path d="M178 234c36-9 75-8 116 2 15 3 26 14 29 29l3 19c3 19-10 37-29 40-34 6-68 4-103-6-12-4-21-13-25-25l-8-31c-4-13 4-25 17-28Z" fill="#f7f3ea" opacity="0.92" stroke="#070707" stroke-width="9" />
+    <path d="M344 236c39-11 77-13 116-4 13 3 21 16 18 29l-8 32c-3 13-13 23-26 26-35 9-69 10-103 3-18-4-30-21-28-39l3-18c3-15 14-26 28-29Z" fill="#f7f3ea" opacity="0.92" stroke="#070707" stroke-width="9" />
+    <path d="M322 260c12-8 24-8 36 0" fill="none" stroke="#070707" stroke-width="8" stroke-linecap="round" />
+    <path d="M222 259l-27 38M246 259l-27 42M407 258l-27 38M431 256l-30 43" stroke="#070707" stroke-width="7" stroke-linecap="round" opacity="0.82" />
+
+    <path d="M325 293c-4 22-2 41 8 55 8 9 21 13 38 11" fill="none" stroke="#120d0b" stroke-width="5" stroke-linecap="round" />
+    <path d="M301 343c10-8 22-9 35-3" fill="none" stroke="#120d0b" stroke-width="5" stroke-linecap="round" />
+
+    <path d="M186 210c-12 45-15 91-8 139M213 159c-8 68-8 135 1 202M244 140c-7 87-5 167 5 241M284 129c-7 99-4 194 8 286M323 126c-4 99 0 195 12 287M365 133c-1 93 5 178 18 256M410 158c3 77 11 145 25 205M455 207c2 45 8 87 18 125" stroke="#15100e" stroke-width="3" stroke-linecap="round" opacity="0.55" />
+    <path d="M218 335c5 54 13 103 25 148M269 372c6 48 13 88 21 120M319 375c6 48 14 87 25 119M374 336c3 59 10 108 21 147" stroke="#090706" stroke-width="3" stroke-linecap="round" opacity="0.52" />
+
+    <path d="M146 454c15 18 38 33 69 44M457 434c-26 16-49 37-68 63" fill="none" stroke="#101415" stroke-width="7" stroke-linecap="round" opacity="0.8" />
+    <path d="M86 540c18-54 50-93 96-119M514 538c-15-53-45-94-91-121" fill="none" stroke="#101415" stroke-width="6" stroke-linecap="round" opacity="0.62" />
+  </g>
+</svg>

@@ -85,7 +85,7 @@ export const profile: Profile = {
   careerAdvocateUrl: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
   emailHref: "mailto:REPLACE_WITH_EMAIL",
   phoneHref: "tel:REPLACE_WITH_PHONE",
-  headshotUrl: "/images/headshot-placeholder.svg",
+  headshotUrl: "/images/scott-whitlock-profile.svg",
   lastUpdated: "May 2026",
   metadata: {
     title: "Scott Whitlock — Product Manager",
@@ -121,37 +121,61 @@ export const profile: Profile = {
   ],
   useCases: [
     {
-      title: "Career Site and AI Career Advocate",
+      title: "Portfolio Site and AI Career Advocate",
       description:
-        "Designed and built this site as a product-style career leavebehind, including a guided chatbot experience grounded in approved career materials. The goal is to help recruiters and hiring teams explore fit more easily while still encouraging direct conversation.",
-      tags: ["Product positioning", "AI workflow", "Personal brand"],
+        "Designed and built this static portfolio site as a product-style career leavebehind, pairing concise positioning with an external AI Career Advocate grounded in approved career materials.",
+      tags: ["Product positioning", "AI workflow", "Static site"],
       href: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
       linkLabel: "Try the Career Advocate",
-      category: "AI-enabled product work",
+      category: "Portfolio product",
       featured: true,
     },
     {
-      title: "AI-Assisted Product Discovery",
+      title: "Tic Tac Pro Game App",
       description:
-        "Uses AI to speed up early discovery, structure ambiguous ideas, draft requirements, compare options, and create prototypes that make product conversations more concrete.",
-      tags: ["Discovery", "Prototyping", "Requirements"],
-      category: "Product discovery",
+        "A cross-platform game concept that reimagines Tic-Tac-Toe with a strategic twist: older moves disappear as new ones are placed. The project shows product strategy, UX decisions, technical planning, and AI-assisted development moving from concept toward prototype.",
+      tags: ["Product strategy", "UX design", "AI-assisted development"],
+      category: "Game app prototype",
       featured: false,
     },
     {
-      title: "Internal Workflow and Platform Improvement",
+      title: "Tabletop Game Library Manager",
       description:
-        "Experience improving tools and systems that support content creation, management, distribution, and operational workflows.",
-      tags: ["Internal tools", "Platforms", "Workflow design"],
-      category: "Internal platforms",
+        "A mobile-first product concept for helping tabletop gamers organize what they own, track what they play, and choose the right game for the right group through explainable recommendations, play logging, and collection-health insights.",
+      tags: ["PRD writing", "MVP definition", "User workflows"],
+      category: "Product strategy",
       featured: false,
     },
     {
-      title: "Cross-Functional Product Alignment",
+      title: "Desktop Buddy",
       description:
-        "Connects product, design, engineering, creative, operations, and stakeholder needs into shared direction, clearer tradeoffs, and actionable next steps.",
-      tags: ["Stakeholder alignment", "Product strategy", "Delivery"],
-      category: "Product leadership",
+        "A practical companion-product concept for exploring how a lightweight desktop assistant can stay useful without becoming distracting, with emphasis on clear interaction boundaries, simple workflows, and responsible AI-enabled support.",
+      tags: ["Product concept", "Interaction design", "AI workflows"],
+      category: "Desktop experience",
+      featured: false,
+    },
+    {
+      title: "Exam Room Education",
+      description:
+        "Supported PatientPoint exam room education experiences by connecting product needs, healthcare content workflows, engineering implementation, and stakeholder expectations for point-of-care patient conversations.",
+      tags: ["Product discovery", "Content workflows", "Healthcare education"],
+      category: "PatientPoint use case",
+      featured: false,
+    },
+    {
+      title: "Practice Engagement",
+      description:
+        "Worked on PatientPoint practice engagement capabilities that helped healthcare practices communicate with staff, reinforce goals, and use digital signage as a repeatable communication hub.",
+      tags: ["Workflow design", "Internal tools", "Content deployment"],
+      category: "PatientPoint use case",
+      featured: false,
+    },
+    {
+      title: "Precision Patient Engagement",
+      description:
+        "Supported product thinking around targeted PatientPoint engagement experiences where data, content, trusted healthcare channels, and internal platform workflows need to align.",
+      tags: ["Product strategy", "Platform thinking", "Targeted engagement"],
+      category: "PatientPoint use case",
       featured: false,
     },
   ],
