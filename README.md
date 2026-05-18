@@ -8,6 +8,7 @@ A small static Product Management career landing page for Scott Whitlock. The si
 - TypeScript
 - Tailwind CSS
 - Vitest
+- Playwright
 - ESLint
 - Static export to `out/`
 - GitHub Actions for CI and DreamHost deployment
@@ -28,6 +29,7 @@ npm run dev        # Start local development server
 npm run lint       # Run ESLint
 npm run typecheck  # Run TypeScript without emitting files
 npm test           # Run Vitest tests
+npm run test:e2e   # Run Playwright responsive UI tests
 npm run build      # Build static export into out/
 ```
 
@@ -40,7 +42,7 @@ npm run build      # Build static export into out/
 Editable site content lives in `content/profile.ts`:
 
 - Name, role, availability, positioning, and bio
-- LinkedIn, resume, Career Advocate, email, and phone hrefs
+- LinkedIn, GitHub, career site repository, resume, Career Advocate, email, and phone hrefs
 - Strength cards
 - Collapsed About copy
 - Metadata and last-updated text

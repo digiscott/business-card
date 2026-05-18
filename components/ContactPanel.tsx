@@ -23,6 +23,9 @@ export function ContactPanel({ profile }: Props) {
           <a className="rounded-full border border-ink/15 px-6 py-3 text-center font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:border-white/15 dark:text-white dark:focus:ring-offset-ink" href={profile.linkedInUrl} target="_blank" rel="noopener noreferrer">
             View LinkedIn
           </a>
+          <a className="rounded-full border border-ink/15 px-6 py-3 text-center font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:border-white/15 dark:text-white dark:focus:ring-offset-ink" href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
+            View GitHub
+          </a>
         </div>
       </div>
     </section>
