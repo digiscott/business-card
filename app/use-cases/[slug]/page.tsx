@@ -53,6 +53,12 @@ export default async function UseCasePage({ params }: Props) {
             >
               ← Back to use cases
             </Link>
+            <Link
+              className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
+              href="/"
+            >
+              Close ×
+            </Link>
           </div>
 
           <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -167,6 +173,12 @@ export default async function UseCasePage({ params }: Props) {
               href="/#use-cases"
             >
               ← Back to use cases
+            </Link>
+            <Link
+              className="inline-flex rounded-full border border-ink/15 px-4 py-2 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent dark:border-white/15 dark:text-white"
+              href="/"
+            >
+              Close ×
             </Link>
           </div>
         </article>
