@@ -5,15 +5,21 @@ export type ProfileLink = {
   external?: boolean;
 };
 
-export type Strength = {
+export type Capability = {
   title: string;
   description: string;
 };
 
-export type AboutItem = {
+export type UseCase = {
   title: string;
-  body: string;
+  description: string;
+  tags?: string[];
+  href?: string;
+  linkLabel?: string;
+  category?: string;
+  featured?: boolean;
 };
+
 
 export type Profile = {
   name: string;
@@ -23,6 +29,8 @@ export type Profile = {
   roleSoughtLine: string;
   positioning: string;
   shortBio: string;
+  heroSupportingCopy: string;
+  heroAvailabilityLine: string;
   focusAreas: string[];
   linkedInUrl: string;
   githubUrl: string;
@@ -42,8 +50,8 @@ export type Profile = {
     description: string;
     disclaimer: string;
   };
-  strengths: Strength[];
-  about: AboutItem[];
+  capabilities: Capability[];
+  useCases: UseCase[];
   learnMoreLinks: ProfileLink[];
 };
 
@@ -53,11 +61,14 @@ export const profile: Profile = {
   availability: "Available now",
   locationPreference: "Remote or Cincinnati-area",
   roleSoughtLine:
-    "Available now for Product Manager roles, remote or Cincinnati-area, where he can connect user needs, workflow design, technical teams, and practical AI adoption.",
+    "Product Manager for complex workflows, internal platforms, and AI-enabled product discovery.",
   positioning:
-    "Product Manager with a design foundation, technical fluency, cross-functional leadership experience, and a practical approach to AI-enabled workflows.",
+    "Scott helps teams clarify ambiguous needs, connect users and stakeholders, and turn complex workflows into practical product direction.",
   shortBio:
-    "Scott Whitlock is a Product Manager with a design foundation, technical fluency, and deep experience connecting product, engineering, UX, creative, and business stakeholders. He helps teams clarify ambiguous needs, improve internal workflows, and deliver practical product solutions across complex digital ecosystems. He is especially interested in roles where product discovery, systems thinking, user empathy, and AI-enabled workflows can create meaningful business value.",
+    "Scott Whitlock is a Product Manager who connects product discovery, UX-minded thinking, technical collaboration, and practical AI adoption to help teams improve complex workflows and internal platforms.",
+  heroSupportingCopy:
+    "Scott helps teams clarify ambiguous needs, connect users and stakeholders, and turn complex workflows into practical product direction.",
+  heroAvailabilityLine: "Available for remote or Cincinnati-area Product Manager roles.",
   focusAreas: [
     "Product Management",
     "Internal tools",
@@ -79,7 +90,7 @@ export const profile: Profile = {
   metadata: {
     title: "Scott Whitlock — Product Manager",
     description:
-      "Scott Whitlock is available now for Product Manager roles, with strengths in product discovery, cross-functional leadership, workflow platforms, and practical AI adoption.",
+      "Scott Whitlock is a Product Manager for complex workflows, internal platforms, and AI-enabled product discovery, available for remote or Cincinnati-area roles.",
   },
   careerAdvocate: {
     title: "Ask Scott's Career Advocate",
@@ -88,88 +99,90 @@ export const profile: Profile = {
     disclaimer:
       "This chatbot is a helpful guide, not a substitute for a direct conversation with Scott. It is based on materials Scott has provided and may not reflect every detail or current nuance.",
   },
-  strengths: [
+  capabilities: [
     {
       title: "Product Discovery",
-      description:
-        "Clarifies ambiguous needs, maps workflows, and turns open-ended problems into product direction.",
+      description: "Clarifies user needs, workflows, and business goals in ambiguous spaces.",
     },
     {
-      title: "Cross-functional Leadership",
-      description:
-        "Aligns product, design, engineering, creative, operations, and stakeholders around practical outcomes.",
+      title: "UX-Minded Product Thinking",
+      description: "Uses a design background to make tools clearer, more usable, and easier to adopt.",
     },
     {
-      title: "UX-minded Product Thinking",
+      title: "Technical Collaboration",
       description:
-        "Brings a design foundation and user empathy into product decisions, workflows, and requirements.",
-    },
-    {
-      title: "Technical Fluency",
-      description:
-        "Partners with engineering on APIs, platforms, systems, dependencies, and implementation tradeoffs.",
+        "Partners with engineering on APIs, internal platforms, dependencies, tradeoffs, and implementation-ready requirements.",
     },
     {
       title: "Practical AI Adoption",
       description:
         "Uses AI to accelerate discovery, prototyping, requirements, workflow improvement, and product exploration.",
     },
-    {
-      title: "Content & Internal Platforms",
-      description:
-        "Improves tools, workflows, and systems that support content creation, management, and distribution.",
-    },
   ],
-  about: [
+  useCases: [
     {
-      title: "Product Management Approach",
-      body: "Scott focuses on understanding user needs, clarifying business goals, and shaping product direction that teams can act on. He is strongest in ambiguous spaces where workflows, systems, people, and priorities need to be connected.",
+      title: "Career Site and AI Career Advocate",
+      description:
+        "Designed and built this site as a product-style career leavebehind, including a guided chatbot experience grounded in approved career materials. The goal is to help recruiters and hiring teams explore fit more easily while still encouraging direct conversation.",
+      tags: ["Product positioning", "AI workflow", "Personal brand"],
+      href: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
+      linkLabel: "Try the Career Advocate",
+      category: "AI-enabled product work",
+      featured: true,
     },
     {
-      title: "Design and UX Foundation",
-      body: "Scott's background in digital design helps him think about how products actually feel to the people using them. He brings user empathy, workflow thinking, and visual communication into product conversations.",
+      title: "AI-Assisted Product Discovery",
+      description:
+        "Uses AI to speed up early discovery, structure ambiguous ideas, draft requirements, compare options, and create prototypes that make product conversations more concrete.",
+      tags: ["Discovery", "Prototyping", "Requirements"],
+      category: "Product discovery",
+      featured: false,
     },
     {
-      title: "Technical Collaboration",
-      body: "Scott works closely with engineering teams to translate needs into implementation-ready direction. He is comfortable discussing APIs, content systems, internal tools, automation, dependencies, and tradeoffs.",
+      title: "Internal Workflow and Platform Improvement",
+      description:
+        "Experience improving tools and systems that support content creation, management, distribution, and operational workflows.",
+      tags: ["Internal tools", "Platforms", "Workflow design"],
+      category: "Internal platforms",
+      featured: false,
     },
     {
-      title: "Practical AI Adoption",
-      body: "Scott uses AI as a practical extension of product work: speeding up discovery, drafting requirements, creating prototypes, exploring workflow improvements, and helping teams evaluate where AI can create useful product value.",
-    },
-    {
-      title: "Career History",
-      body: "For full career history, roles, and recommendations, visit LinkedIn or download the resume.",
+      title: "Cross-Functional Product Alignment",
+      description:
+        "Connects product, design, engineering, creative, operations, and stakeholder needs into shared direction, clearer tradeoffs, and actionable next steps.",
+      tags: ["Stakeholder alignment", "Product strategy", "Delivery"],
+      category: "Product leadership",
+      featured: false,
     },
   ],
   learnMoreLinks: [
     {
-      label: "View LinkedIn",
+      label: "LinkedIn",
       href: "https://www.linkedin.com/in/scott-whitlock/",
-      description: "Career history, roles, skills, and recommendations.",
+      description: "Career history, recommendations, and full experience.",
       external: true,
     },
     {
-      label: "View GitHub",
+      label: "GitHub",
       href: "https://github.com/digiscott",
-      description: "Public GitHub profile for code and technical exploration.",
+      description: "Public technical exploration and project work.",
       external: true,
     },
     {
-      label: "Career Site Repo",
+      label: "Site Repo",
       href: "https://github.com/digiscott/business-card",
-      description: "Source repository for this static Product Management career site.",
+      description: "Source for this career site.",
       external: true,
     },
     {
-      label: "Download Resume",
+      label: "Resume",
       href: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
-      description: "A formal PDF resume for application review.",
+      description: "Formal resume for application review.",
     },
     {
-      label: "Ask Scott's Career Advocate",
+      label: "Career Advocate",
       href: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
-      description: "Guided Q&A grounded in approved career materials.",
+      description: "Guided Q&A about Scott's background and fit.",
       external: true,
     },
   ],
