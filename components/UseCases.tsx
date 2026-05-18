@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Profile, UseCase } from "../content/profile";
 
 type Props = {
@@ -37,9 +38,15 @@ function UseCaseCard({ useCase }: UseCaseCardProps) {
         </ul>
       ) : null}
       {useCase.href && useCase.linkLabel ? (
-        <a className="mt-5 inline-flex font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent" href={useCase.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
-          {useCase.linkLabel} →
-        </a>
+        isExternal ? (
+          <a className="mt-5 inline-flex font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent" href={useCase.href} rel="noopener noreferrer" target="_blank">
+            {useCase.linkLabel} →
+          </a>
+        ) : (
+          <Link className="mt-5 inline-flex font-bold text-accent transition hover:text-copper focus:outline-none focus:ring-2 focus:ring-accent" href={useCase.href}>
+            {useCase.linkLabel} →
+          </Link>
+        )
       ) : null}
     </article>
   );

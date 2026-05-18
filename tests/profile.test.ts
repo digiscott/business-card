@@ -65,6 +65,10 @@ describe("profile content", () => {
         "Exam Room Education",
       ]),
     );
+    expect(profile.headshotUrl).toMatch(/^data:image\/png;base64,/);
+    expect(profile.useCases.every((useCase) => useCase.href === `/use-cases/${useCase.slug}`)).toBe(true);
+    expect(profile.useCases.every((useCase) => useCase.linkLabel === "View use case")).toBe(true);
+    expect(profile.useCases.every((useCase) => useCase.detail.sections.length > 0)).toBe(true);
     expect(profile.metadata.title).toBeTruthy();
     expect(profile.metadata.description).toBeTruthy();
   });
