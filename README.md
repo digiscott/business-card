@@ -55,6 +55,17 @@ Do not place full email or phone values in visible page copy. Use `mailto:` and 
 - Headshot: replace `public/images/headshot-placeholder.svg` with a final image and update `profile.headshotUrl` if the filename changes.
 - Career Advocate: `profile.careerAdvocateUrl` points to the production chatbot URL.
 
+
+## Optional analytics and cookie consent
+
+Google Tag Manager is disabled by default. To enable it, set this environment variable:
+
+```bash
+NEXT_PUBLIC_GTM_ID=GTM-KRTTQSGQ
+```
+
+When enabled, the site loads the GTM container and shows a cookie consent banner. Consent mode defaults analytics storage to denied until the visitor accepts.
+
 ## CI/CD
 
 GitHub Actions workflows are in `.github/workflows/`:
