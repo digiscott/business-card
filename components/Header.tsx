@@ -1,10 +1,9 @@
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Strengths", href: "#strengths" },
-  { label: "Learn More", href: "#learn-more" },
-  { label: "Career Advocate", href: "#career-advocate" },
+  { label: "What I Bring", href: "#what-i-bring" },
+  { label: "Use Cases", href: "#use-cases" },
+  { label: "Next Step", href: "#next-step" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -36,15 +35,12 @@ export function Header() {
             </summary>
             <nav
               aria-label="Mobile primary navigation"
-              className="absolute right-0 top-full mt-3 w-64 rounded-2xl border border-ink/10 bg-paper p-2 shadow-xl dark:border-white/10 dark:bg-ink"
+              className="absolute right-0 mt-3 hidden w-56 rounded-2xl border border-ink/10 bg-white p-3 shadow-soft group-open:block dark:border-white/10 dark:bg-ink"
             >
-              <ul className="flex flex-col text-sm font-medium text-ink/80 dark:text-white/80">
+              <ul className="space-y-1">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <a
-                      className="block rounded-xl px-4 py-3 transition hover:bg-accent/10 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-                      href={item.href}
-                    >
+                    <a className="block rounded-xl px-3 py-2 text-sm font-semibold text-ink/80 hover:bg-accent/10 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent dark:text-white/80" href={item.href}>
                       {item.label}
                     </a>
                   </li>

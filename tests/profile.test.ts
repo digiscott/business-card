@@ -9,11 +9,19 @@ const visibleTextFields = [
   profile.roleSoughtLine,
   profile.positioning,
   profile.shortBio,
+  profile.heroSupportingCopy,
+  profile.heroAvailabilityLine,
   profile.metadata.title,
   profile.metadata.description,
   ...profile.focusAreas,
-  ...profile.strengths.flatMap((strength) => [strength.title, strength.description]),
-  ...profile.about.flatMap((item) => [item.title, item.body]),
+  ...profile.capabilities.flatMap((capability) => [capability.title, capability.description]),
+  ...profile.useCases.flatMap((useCase) => [
+    useCase.title,
+    useCase.description,
+    useCase.category ?? "",
+    useCase.linkLabel ?? "",
+    ...(useCase.tags ?? []),
+  ]),
   ...profile.learnMoreLinks.flatMap((link) => [link.label, link.description]),
 ];
 
@@ -22,6 +30,8 @@ describe("profile content", () => {
     expect(profile.name).toBe("Scott Whitlock");
     expect(profile.role).toBe("Product Manager");
     expect(profile.availability).toContain("Available now");
+    expect(profile.roleSoughtLine).toContain("complex workflows");
+    expect(profile.heroAvailabilityLine).toContain("remote or Cincinnati-area");
   });
 
   it("has required links", () => {
@@ -32,20 +42,21 @@ describe("profile content", () => {
     expect(profile.careerAdvocateUrl).toBe(
       "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
     );
-    expect(profile.learnMoreLinks.find((link) => link.label === "View GitHub")?.href).toBe(profile.githubUrl);
-    expect(profile.learnMoreLinks.find((link) => link.label === "Career Site Repo")?.href).toBe(
+    expect(profile.learnMoreLinks.find((link) => link.label === "GitHub")?.href).toBe(profile.githubUrl);
+    expect(profile.learnMoreLinks.find((link) => link.label === "Site Repo")?.href).toBe(
       profile.careerSiteRepositoryUrl,
     );
-    expect(profile.learnMoreLinks.find((link) => link.label === "Ask Scott's Career Advocate")?.href).toBe(
+    expect(profile.learnMoreLinks.find((link) => link.label === "Career Advocate")?.href).toBe(
       profile.careerAdvocateUrl,
     );
     expect(profile.emailHref).toMatch(/^mailto:/);
     expect(profile.phoneHref).toMatch(/^tel:/);
   });
 
-  it("has the expected section content", () => {
-    expect(profile.strengths).toHaveLength(6);
-    expect(profile.about.length).toBeGreaterThan(0);
+  it("has simplified capability and use case content", () => {
+    expect(profile.capabilities).toHaveLength(4);
+    expect(profile.useCases.length).toBeGreaterThanOrEqual(3);
+    expect(profile.useCases.map((useCase) => useCase.title)).toContain("Career Site and AI Career Advocate");
     expect(profile.metadata.title).toBeTruthy();
     expect(profile.metadata.description).toBeTruthy();
   });

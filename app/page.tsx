@@ -1,11 +1,10 @@
-import { AboutSection } from "../components/AboutSection";
-import { CareerAdvocateCallout } from "../components/CareerAdvocateCallout";
 import { ContactPanel } from "../components/ContactPanel";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { LearnMoreLinks } from "../components/LearnMoreLinks";
-import { StrengthCards } from "../components/StrengthCards";
+import { UseCases } from "../components/UseCases";
+import { WhatIBring } from "../components/WhatIBring";
 import { profile } from "../content/profile";
 
 export default function Home() {
@@ -14,9 +13,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero profile={profile} />
-        <CareerAdvocateCallout profile={profile} />
-        <AboutSection profile={profile} />
-        <StrengthCards profile={profile} />
+        <WhatIBring profile={profile} />
+        <UseCases profile={profile} />
         <LearnMoreLinks profile={profile} />
         <ContactPanel profile={profile} />
       </main>

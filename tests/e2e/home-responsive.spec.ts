@@ -2,11 +2,11 @@ import { expect, test } from "@playwright/test";
 
 const requiredLinks = [
   { name: "View LinkedIn", href: "https://www.linkedin.com/in/scott-whitlock/" },
-  { name: "View GitHub", href: "https://github.com/digiscott" },
-  { name: "Career Site Repo", href: "https://github.com/digiscott/business-card" },
+  { name: "GitHub", href: "https://github.com/digiscott" },
+  { name: "Site Repo", href: "https://github.com/digiscott/business-card" },
   { name: "Download Resume", href: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf" },
   {
-    name: "Ask Scott's Career Advocate",
+    name: "Career Advocate",
     href: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
   },
 ];
@@ -16,9 +16,11 @@ test.describe("home page responsive UI", () => {
     await page.goto("/");
 
     await expect(page.getByRole("heading", { name: "Scott Whitlock" })).toBeVisible();
-    await expect(page.getByText("Available now · Remote or Cincinnati-area")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Use the right follow-up path for the conversation." })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Interested in discussing a Product Management role?" })).toBeVisible();
+    await expect(page.getByText("Available for remote or Cincinnati-area Product Manager roles.")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "What I Bring" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "How I Work in Practice" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Choose the Best Next Step" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Start a direct conversation with Scott." })).toBeVisible();
 
     for (const link of requiredLinks) {
       await expect(page.getByRole("link", { name: link.name }).first()).toHaveAttribute("href", link.href);
@@ -45,7 +47,7 @@ test.describe("home page responsive UI", () => {
 
     const mobileNavigation = page.getByRole("navigation", { name: "Mobile primary navigation" });
     await expect(mobileNavigation).toBeVisible();
-    await expect(mobileNavigation.getByRole("link", { name: "Career Advocate" })).toBeVisible();
+    await expect(mobileNavigation.getByRole("link", { name: "Use Cases" })).toBeVisible();
     await expect(mobileNavigation.getByRole("link", { name: "Contact" })).toBeVisible();
 
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
