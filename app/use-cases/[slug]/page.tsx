@@ -73,7 +73,7 @@ export default async function UseCasePage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            <UseCaseVisual title={useCase.title} visual={useCase.detail.visual} />
+            <UseCaseVisual title={useCase.title} visual={useCase.detail.visual} visualImage={useCase.detail.visualImage} />
           </div>
 
           <section className="mt-12 rounded-[2rem] border border-ink/10 bg-white/65 p-6 dark:border-white/10 dark:bg-white/10">
@@ -115,24 +115,53 @@ export default async function UseCasePage({ params }: Props) {
           </div>
 
           <section className="mt-10 rounded-[1.5rem] border border-ink/10 bg-white/70 p-6 dark:border-white/10 dark:bg-white/10">
-            <h2 className="text-2xl font-black text-ink dark:text-white">Visual placeholders</h2>
+            <h2 className="text-2xl font-black text-ink dark:text-white">Assets & Visuals</h2>
             <p className="mt-3 text-ink/70 dark:text-white/70">
-              Temporary in-body visuals for UX examples and workflow diagrams.
+              {useCase.detail.visualImage 
+                ? "Key diagrams, documents, and reference materials."
+                : "Temporary in-body visuals for UX examples and workflow diagrams."}
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {useCase.detail.imagePlaceholders.map((image) => (
-                <figure
-                  className="rounded-2xl border border-ink/10 bg-gradient-to-br from-accent/15 to-copper/10 p-4 dark:border-white/10 dark:from-cyan-200/15 dark:to-orange-200/10"
-                  key={image.title}
-                >
-                  <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-dashed border-ink/20 bg-white/70 text-center text-sm font-bold uppercase tracking-wide text-ink/70 dark:border-white/25 dark:bg-ink/50 dark:text-white/70">
-                    {image.type}
-                  </div>
-                  <figcaption className="mt-3 text-sm font-semibold text-ink/80 dark:text-white/80">
-                    {image.title}
-                  </figcaption>
-                </figure>
-              ))}
+              {useCase.detail.imagePlaceholders?.map((image, index) => {
+                const productLink = useCase.detail.productLinks?.[index];
+                return (
+                  <figure
+                    className="rounded-2xl border border-ink/10 bg-gradient-to-br from-accent/15 to-copper/10 p-4 dark:border-white/10 dark:from-cyan-200/15 dark:to-orange-200/10"
+                    key={image.title}
+                  >
+                    {productLink ? (
+                      <a
+                        href={productLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block"
+                      >
+                        <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-dashed border-ink/20 bg-white/70 text-center text-sm font-bold uppercase tracking-wide text-ink/70 transition hover:bg-accent/10 dark:border-white/25 dark:bg-ink/50 dark:text-white/70 dark:hover:bg-accent/20">
+                          {image.type}
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-dashed border-ink/20 bg-white/70 text-center text-sm font-bold uppercase tracking-wide text-ink/70 dark:border-white/25 dark:bg-ink/50 dark:text-white/70">
+                        {image.type}
+                      </div>
+                    )}
+                    <figcaption className="mt-3 text-sm font-semibold text-ink/80 dark:text-white/80">
+                      {productLink ? (
+                        <a
+                          href={productLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent transition hover:text-copper"
+                        >
+                          {image.title}
+                        </a>
+                      ) : (
+                        image.title
+                      )}
+                    </figcaption>
+                  </figure>
+                );
+              })}
             </div>
           </section>
 
