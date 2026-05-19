@@ -95,4 +95,4 @@ Use `--delete` only when `DREAMHOST_TARGET_PATH` is dedicated to this site.
 
 ## Agent context
 
-The numbered Markdown files in the repository are the source context pack for future agents. Start with `00_README_FOR_AGENT.md`, then use the product, content, design, technical, component, SEO, deployment, testing, and scope files to guide changes.
+The Markdown files in `.agentsContext/` are the source context pack for future agents. Start with `.agentsContext/00_README_FOR_AGENT.md`, then use the product, content, design, technical, component, SEO, deployment, testing, and scope files to guide changes.
