@@ -32,7 +32,11 @@ export type UseCaseDetail = {
   headline: string;
   summary: string;
   snapshot: { label: string; value: string }[];
-  imagePlaceholders: { title: string; type: "UX flow" | "Wireframe" | "Diagram" }[];
+  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" }[];
+  visualImage?: {
+    src: string;
+    alt: string;
+  };
   productLinks?: { label: string; href: string }[];
   sections: UseCaseSection[];
   outcome: string;
@@ -281,6 +285,10 @@ export const profile: Profile = {
         summary:
           "The Tabletop Game Library Manager is a mobile-first product concept for helping tabletop players organize collections, track play history, and choose the right game for the right group.",
         visual: "tabletopLibrary",
+        visualImage: {
+          src: "/images/tabletop-splash.png",
+          alt: "Tabletop Game Library Manager splash screen and collection interface",
+        },
         snapshot: [
           { label: "Type", value: "Mobile-first responsive web app concept" },
           { label: "Focus", value: "PRD writing, MVP definition, user workflows, feature prioritization" },
@@ -288,9 +296,14 @@ export const profile: Profile = {
           { label: "Status", value: "Product strategy and PRD foundation" },
         ],
         imagePlaceholders: [
-          { title: "Primary UX flow", type: "UX flow" },
-          { title: "Interaction wireframe", type: "Wireframe" },
-          { title: "System relationship diagram", type: "Diagram" },
+          { title: "System Relationships", type: "Diagram" },
+          { title: "Product Requirements Document", type: "Document" },
+          { title: "Hero Experience", type: "Design" },
+        ],
+        productLinks: [
+          { label: "System diagram (Mermaid)", href: "/images/tabletop_game_library.mermaid" },
+          { label: "Product Requirements Document", href: "/images/tabletop_collection_manager_prd.pdf" },
+          { label: "Hero Experience", href: "/images/game_library_hero.png" },
         ],
         sections: [
           {

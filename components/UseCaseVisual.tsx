@@ -1,8 +1,13 @@
+import Image from "next/image";
 import type { UseCaseVisual as UseCaseVisualName } from "../content/profile";
 
 type Props = {
   visual: UseCaseVisualName;
   title: string;
+  visualImage?: {
+    src: string;
+    alt: string;
+  };
 };
 
 const visualThemes: Record<UseCaseVisualName, { label: string; accent: string; nodes: string[] }> = {
@@ -43,8 +48,30 @@ const visualThemes: Record<UseCaseVisualName, { label: string; accent: string; n
   },
 };
 
-export function UseCaseVisual({ visual, title }: Props) {
+export function UseCaseVisual({ visual, title, visualImage }: Props) {
   const theme = visualThemes[visual];
+
+  if (visualImage) {
+    return (
+      <div
+        aria-label={`${title} concept visual`}
+        className="relative overflow-hidden rounded-[2rem] border border-ink/10 bg-white/75 p-5 shadow-soft dark:border-white/10 dark:bg-white/10"
+        role="img"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(31,122,140,0.2),transparent_18rem),radial-gradient(circle_at_bottom_right,rgba(181,107,69,0.18),transparent_16rem)]" />
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-ink/10 bg-paper/80 p-5 dark:border-white/10 dark:bg-ink/70">
+          <Image
+            alt={visualImage.alt}
+            src={visualImage.src}
+            width={500}
+            height={500}
+            className="h-auto w-full object-cover"
+            priority
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
