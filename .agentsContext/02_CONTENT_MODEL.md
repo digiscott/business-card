@@ -207,7 +207,7 @@ Use a downloadable PDF only for v1.
 Suggested path:
 
 ```text
-/public/resume/Scott-Whitlock-Product-Manager-Resume.pdf
+/public/resume/Scott_Whitlock_Resume_Updated.pdf
 ```
 
 Suggested link label:

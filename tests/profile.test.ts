@@ -35,10 +35,11 @@ describe("profile content", () => {
   });
 
   it("has required links", () => {
-    expect(profile.linkedInUrl).toContain("linkedin.com/in/scott-whitlock");
+    expect(profile.linkedInUrl).toBe("https://www.linkedin.com/in/scott-whitlock-a73953a/");
     expect(profile.githubUrl).toBe("https://github.com/digiscott");
     expect(profile.careerSiteRepositoryUrl).toBe("https://github.com/digiscott/business-card");
     expect(profile.resumeUrl).toMatch(/\.pdf$/);
+    expect(profile.resumeUrl).toBe("/resume/Scott_Whitlock_Resume_Updated.pdf");
     expect(profile.careerAdvocateUrl).toBe(
       "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
     );
@@ -59,11 +60,14 @@ describe("profile content", () => {
     expect(profile.useCases.map((useCase) => useCase.title)).toEqual(
       expect.arrayContaining([
         "Portfolio Site and AI Career Advocate",
-        "Tic Tac Pro Game App",
         "Tabletop Game Library Manager",
         "Desktop Buddy",
         "Exam Room Education",
       ]),
+    );
+    expect(profile.useCases.map((useCase) => useCase.title)).not.toContain("Tic Tac Pro Game App");
+    expect(profile.useCases.find((useCase) => useCase.title === "Tabletop Game Library Manager")?.cardImage?.src).toBe(
+      "/images/tabletop-splash.png",
     );
     expect(profile.headshotUrl).toMatch(/^data:image\/png;base64,/);
     expect(profile.useCases.every((useCase) => useCase.href === `/use-cases/${useCase.slug}`)).toBe(true);
