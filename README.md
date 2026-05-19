@@ -51,7 +51,7 @@ Do not place full email or phone values in visible page copy. Use `mailto:` and 
 
 ## Replace launch assets
 
-- Resume: replace `public/resume/Scott-Whitlock-Product-Manager-Resume.pdf` with the final PDF while keeping the same filename, or update `profile.resumeUrl`.
+- Resume: replace `public/resume/Scott_Whitlock_Resume_Updated.pdf` with the final PDF while keeping the same filename, or update `profile.resumeUrl`.
 - Headshot: replace `public/images/headshot-placeholder.svg` with a final image and update `profile.headshotUrl` if the filename changes.
 - Career Advocate: `profile.careerAdvocateUrl` points to the production chatbot URL.
 

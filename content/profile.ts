@@ -111,7 +111,7 @@ export const profile: Profile = {
   linkedInUrl: "https://www.linkedin.com/in/scott-whitlock/",
   githubUrl: "https://github.com/digiscott",
   careerSiteRepositoryUrl: "https://github.com/digiscott/business-card",
-  resumeUrl: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
+  resumeUrl: "/resume/Scott_Whitlock_Resume_Updated.pdf",
   careerAdvocateUrl: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
   emailHref: "mailto:REPLACE_WITH_EMAIL",
   phoneHref: "tel:REPLACE_WITH_PHONE",
@@ -544,7 +544,7 @@ export const profile: Profile = {
     },
     {
       label: "Resume",
-      href: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
+      href: "/resume/Scott_Whitlock_Resume_Updated.pdf",
       description: "Formal resume for application review.",
     },
     {
