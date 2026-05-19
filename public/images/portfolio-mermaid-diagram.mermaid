@@ -1,0 +1,29 @@
+flowchart LR
+    subgraph EntryPoints[Entry points]
+        A1[LinkedIn profile click-through]
+        A2[Resume or application link]
+        A3[Interview follow-up leave-behind]
+        A4[Networking or referral share]
+    end
+
+    EntryPoints --> B[Visitor lands on career.digiscott.com]
+
+    B --> C[Homepage gives concise positioning]
+    C --> D{What does the visitor need next?}
+
+    D -->|Fast scan| E[Confirm role fit and credibility]
+    D -->|Evidence| F[Explore use cases]
+    D -->|Deeper context| G[Ask AI Career Advocate]
+    D -->|Next step| H[Contact Scott]
+
+    E --> I[Download resume or open LinkedIn]
+    F --> J[Review problem, approach, artifacts, and outcomes]
+    G --> K[Ask about experience, strengths, projects, or fit]
+
+    I --> L[Visitor gains confidence]
+    J --> L
+    K --> L
+
+    L --> M{Ready to continue?}
+    M -->|Yes| N[Email, phone, LinkedIn, referral, or interview request]
+    M -->|Not yet| O[Return later with a clearer picture of Scott's value]
