@@ -42,6 +42,10 @@ export type UseCaseDetail = {
 export type UseCase = {
   title: string;
   description: string;
+  cardImage?: {
+    src: string;
+    alt: string;
+  };
   tags?: string[];
   href?: string;
   linkLabel?: string;
@@ -108,10 +112,10 @@ export const profile: Profile = {
     "UX-minded discovery",
     "Technical collaboration",
   ],
-  linkedInUrl: "https://www.linkedin.com/in/scott-whitlock/",
+  linkedInUrl: "https://www.linkedin.com/in/scott-whitlock-a73953a/",
   githubUrl: "https://github.com/digiscott",
   careerSiteRepositoryUrl: "https://github.com/digiscott/business-card",
-  resumeUrl: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
+  resumeUrl: "/resume/Scott_Whitlock_Resume_Updated.pdf",
   careerAdvocateUrl: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
   emailHref: "mailto:REPLACE_WITH_EMAIL",
   phoneHref: "tel:REPLACE_WITH_PHONE",
@@ -203,63 +207,68 @@ export const profile: Profile = {
           "The result is a concise product-management leavebehind that demonstrates positioning, scope control, content strategy, and practical AI adoption in the artifact itself.",
       },
     },
-    {
-      title: "Tic Tac Pro Game App",
-      description:
-        "A cross-platform game concept that reimagines Tic-Tac-Toe with a strategic twist: older moves disappear as new ones are placed. The project shows product strategy, UX decisions, technical planning, and AI-assisted development moving from concept toward prototype.",
-      tags: ["Product strategy", "UX design", "AI-assisted development"],
-      href: "/use-cases/tic-tac-pro-game-app",
-      linkLabel: "View use case",
-      category: "Game app prototype",
-      featured: false,
-      slug: "tic-tac-pro-game-app",
-      detail: {
-        eyebrow: "Game app prototype",
-        headline: "Building a cross-platform game app with AI-assisted product development",
-        summary:
-          "Tic Tac Pro explores how a familiar game can become more strategic when older moves disappear as new ones are placed, creating a faster and more dynamic version of Tic-Tac-Toe.",
-        visual: "ticTacPro",
-        snapshot: [
-          { label: "Type", value: "Mobile/web game prototype" },
-          { label: "Focus", value: "Product strategy, UX design, game rules, AI-assisted development" },
-          { label: "Platform direction", value: "Web, iOS, Android" },
-          { label: "Technical direction", value: "Shared Expo / React Native codebase" },
-        ],
-        imagePlaceholders: [
-          { title: "Primary UX flow", type: "UX flow" },
-          { title: "Interaction wireframe", type: "Wireframe" },
-          { title: "System relationship diagram", type: "Diagram" },
-        ],
-        sections: [
-          {
-            title: "The challenge",
-            body: [
-              "The app needed to feel simple enough for anyone to understand quickly while adding enough strategy to make the familiar game feel fresh.",
-              "It also needed a technical direction that could support future expansion across web, iOS, and Android without creating separate codebases for each platform.",
-            ],
-            bullets: [
-              "Clarify the disappearing-move mechanic",
-              "Design onboarding that makes the rule change obvious",
-              "Separate prototype scope from future features",
-              "Use AI tools to accelerate documentation and development planning",
-            ],
-          },
-          {
-            title: "Product thinking",
-            body: [
-              "Scott treated the game as a product exercise rather than just a code exercise. The work included rules, edge cases, player feedback, UI states, feature boundaries, and a path toward cross-platform delivery.",
-              "AI-assisted workflows helped move quickly from idea to prototype while keeping decisions grounded in player clarity and product scope.",
-            ],
-          },
-        ],
-        outcome:
-          "The concept demonstrates how Scott uses product judgment, UX thinking, technical planning, and AI-assisted workflows to turn a small idea into a structured prototype path.",
-      },
-    },
+    // Temporarily hidden; keep this use case available to restore later.
+    // {
+    //   title: "Tic Tac Pro Game App",
+    //   description:
+    //     "A cross-platform game concept that reimagines Tic-Tac-Toe with a strategic twist: older moves disappear as new ones are placed. The project shows product strategy, UX decisions, technical planning, and AI-assisted development moving from concept toward prototype.",
+    //   tags: ["Product strategy", "UX design", "AI-assisted development"],
+    //   href: "/use-cases/tic-tac-pro-game-app",
+    //   linkLabel: "View use case",
+    //   category: "Game app prototype",
+    //   featured: false,
+    //   slug: "tic-tac-pro-game-app",
+    //   detail: {
+    //     eyebrow: "Game app prototype",
+    //     headline: "Building a cross-platform game app with AI-assisted product development",
+    //     summary:
+    //       "Tic Tac Pro explores how a familiar game can become more strategic when older moves disappear as new ones are placed, creating a faster and more dynamic version of Tic-Tac-Toe.",
+    //     visual: "ticTacPro",
+    //     snapshot: [
+    //       { label: "Type", value: "Mobile/web game prototype" },
+    //       { label: "Focus", value: "Product strategy, UX design, game rules, AI-assisted development" },
+    //       { label: "Platform direction", value: "Web, iOS, Android" },
+    //       { label: "Technical direction", value: "Shared Expo / React Native codebase" },
+    //     ],
+    //     imagePlaceholders: [
+    //       { title: "Primary UX flow", type: "UX flow" },
+    //       { title: "Interaction wireframe", type: "Wireframe" },
+    //       { title: "System relationship diagram", type: "Diagram" },
+    //     ],
+    //     sections: [
+    //       {
+    //         title: "The challenge",
+    //         body: [
+    //           "The app needed to feel simple enough for anyone to understand quickly while adding enough strategy to make the familiar game feel fresh.",
+    //           "It also needed a technical direction that could support future expansion across web, iOS, and Android without creating separate codebases for each platform.",
+    //         ],
+    //         bullets: [
+    //           "Clarify the disappearing-move mechanic",
+    //           "Design onboarding that makes the rule change obvious",
+    //           "Separate prototype scope from future features",
+    //           "Use AI tools to accelerate documentation and development planning",
+    //         ],
+    //       },
+    //       {
+    //         title: "Product thinking",
+    //         body: [
+    //           "Scott treated the game as a product exercise rather than just a code exercise. The work included rules, edge cases, player feedback, UI states, feature boundaries, and a path toward cross-platform delivery.",
+    //           "AI-assisted workflows helped move quickly from idea to prototype while keeping decisions grounded in player clarity and product scope.",
+    //         ],
+    //       },
+    //     ],
+    //     outcome:
+    //       "The concept demonstrates how Scott uses product judgment, UX thinking, technical planning, and AI-assisted workflows to turn a small idea into a structured prototype path.",
+    //   },
+    // },
     {
       title: "Tabletop Game Library Manager",
       description:
         "A mobile-first product concept for helping tabletop gamers organize what they own, track what they play, and choose the right game for the right group through explainable recommendations, play logging, and collection-health insights.",
+      cardImage: {
+        src: "/images/tabletop-splash.png",
+        alt: "Tabletop Game Library Manager splash screen with board game collection artwork",
+      },
       tags: ["PRD writing", "MVP definition", "User workflows"],
       href: "/use-cases/tabletop-game-library-manager",
       linkLabel: "View use case",
@@ -526,7 +535,7 @@ export const profile: Profile = {
   learnMoreLinks: [
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/scott-whitlock/",
+      href: "https://www.linkedin.com/in/scott-whitlock-a73953a/",
       description: "Career history, recommendations, and full experience.",
       external: true,
     },
@@ -544,7 +553,7 @@ export const profile: Profile = {
     },
     {
       label: "Resume",
-      href: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
+      href: "/resume/Scott_Whitlock_Resume_Updated.pdf",
       description: "Formal resume for application review.",
     },
     {

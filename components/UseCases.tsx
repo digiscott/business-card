@@ -27,6 +27,17 @@ function UseCaseCard({ useCase }: UseCaseCardProps) {
         ) : null}
       </div>
       <h3 className="mt-4 text-xl font-black text-ink dark:text-white">{useCase.title}</h3>
+      {useCase.cardImage ? (
+        <div className="mt-4 overflow-hidden rounded-2xl border border-ink/10 bg-ink/5 dark:border-white/10 dark:bg-white/5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="aspect-[16/10] w-full object-cover"
+            src={useCase.cardImage.src}
+            alt={useCase.cardImage.alt}
+            loading="lazy"
+          />
+        </div>
+      ) : null}
       <p className="mt-3 grow leading-7 text-ink/70 dark:text-white/70">{useCase.description}</p>
       {useCase.tags?.length ? (
         <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${useCase.title} tags`}>

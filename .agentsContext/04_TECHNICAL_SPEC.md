@@ -77,7 +77,7 @@ scott-whitlock-portfolio/
     theme.ts
   public/
     resume/
-      Scott-Whitlock-Product-Manager-Resume.pdf
+      Scott_Whitlock_Resume_Updated.pdf
     images/
       headshot-placeholder.svg
   tests/
@@ -175,13 +175,13 @@ The Career Advocate chatbot should open in a new tab.
 Place PDF at:
 
 ```text
-public/resume/Scott-Whitlock-Product-Manager-Resume.pdf
+public/resume/Scott_Whitlock_Resume_Updated.pdf
 ```
 
 Link to it with:
 
 ```text
-/resume/Scott-Whitlock-Product-Manager-Resume.pdf
+/resume/Scott_Whitlock_Resume_Updated.pdf
 ```
 
 ## Routing

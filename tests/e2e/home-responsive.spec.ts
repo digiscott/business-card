@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
 const requiredLinks = [
-  { name: "View LinkedIn", href: "https://www.linkedin.com/in/scott-whitlock/" },
+  { name: "View LinkedIn", href: "https://www.linkedin.com/in/scott-whitlock-a73953a/" },
   { name: "GitHub", href: "https://github.com/digiscott" },
   { name: "Site Repo", href: "https://github.com/digiscott/business-card" },
-  { name: "Download Resume", href: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf" },
+  { name: "Download Resume", href: "/resume/Scott_Whitlock_Resume_Updated.pdf" },
   {
     name: "Career Advocate",
     href: "https://chatgpt.com/g/g-6a09bab5746c819183713ef3cf9d1f87-digiscott-career-advocate",
@@ -21,8 +21,11 @@ test.describe("home page responsive UI", () => {
     await expect(page.getByRole("heading", { name: "How Scott Works in Practice" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Choose the Best Next Step" })).toBeVisible();
 
-    await expect(page.getByRole("heading", { name: "Tic Tac Pro Game App" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Tabletop Game Library Manager" })).toBeVisible();
+    await expect(page.getByAltText("Tabletop Game Library Manager splash screen with board game collection artwork")).toHaveAttribute(
+      "src",
+      "/images/tabletop-splash.png",
+    );
     await expect(page.getByRole("heading", { name: "Desktop Buddy" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Exam Room Education" })).toBeVisible();
     await expect(page.getByRole("link", { name: "View use case" }).first()).toHaveAttribute(

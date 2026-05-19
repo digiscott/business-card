@@ -31,7 +31,7 @@ export const profile = {
   shortBio:
     "Scott Whitlock is a Product Manager with a design foundation, technical fluency, and deep experience connecting product, engineering, UX, creative, and business stakeholders. He helps teams clarify ambiguous needs, improve internal workflows, and deliver practical product solutions across complex digital ecosystems. He is especially interested in roles where product discovery, systems thinking, user empathy, and AI-enabled workflows can create meaningful business value.",
   linkedInUrl: "https://www.linkedin.com/in/scott-whitlock-a73953a/",
-  resumeUrl: "/resume/Scott-Whitlock-Product-Manager-Resume.pdf",
+  resumeUrl: "/resume/Scott_Whitlock_Resume_Updated.pdf",
   careerAdvocateUrl: "https://chatgpt.com/g/your-custom-gpt-placeholder",
   emailHref: "mailto:REPLACE_WITH_EMAIL",
   phoneHref: "tel:REPLACE_WITH_PHONE",
