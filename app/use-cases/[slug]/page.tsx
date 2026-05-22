@@ -179,7 +179,7 @@ export default async function UseCasePage({ params }: Props) {
             </div>
           </section>
 
-          {useCase.detail.productLinks?.length ? (
+          {useCase.detail.productLinks?.length && useCase.slug !== "tabletop-game-library-manager" ? (
             <section className="mt-6 rounded-[1.5rem] border border-ink/10 bg-white/70 p-6 dark:border-white/10 dark:bg-white/10">
               <h2 className="text-2xl font-black text-ink dark:text-white">Related PatientPoint products</h2>
               <ul className="mt-4 space-y-3">
