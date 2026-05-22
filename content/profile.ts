@@ -301,7 +301,7 @@ export const profile: Profile = {
           { title: "Elevator Pitch", type: "UX flow" },
         ],
         productLinks: [
-          { label: "System Diagram", href: "/images/tabletop_library_mermaid-diagram.png" },
+          { label: "System Diagram", href: "/diagrams/tabletop-game-library" },
           { label: "PRD", href: "/images/tabletop_collection_manager_prd.pdf" },
           { label: "Elevator Pitch", href: "/documents/tabletop-elevator-pitch.pdf" },
         ],
