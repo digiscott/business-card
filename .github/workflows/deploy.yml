@@ -44,6 +44,8 @@ jobs:
         run: npm test
 
       - name: Build static export
+        env:
+          NEXT_PUBLIC_GTM_ID: ${{ vars.NEXT_PUBLIC_GTM_ID }}
         run: npm run build
 
       - name: Upload static site artifact

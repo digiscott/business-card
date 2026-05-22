@@ -61,7 +61,7 @@ Do not place full email or phone values in visible page copy. Use `mailto:` and 
 Google Analytics is disabled by default. To enable it, set this environment variable:
 
 ```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXXX
 ```
 
 When enabled, the site shows a cookie consent banner and defaults analytics storage to denied until the visitor accepts.
