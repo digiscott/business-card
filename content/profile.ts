@@ -32,7 +32,7 @@ export type UseCaseDetail = {
   headline: string;
   summary: string;
   snapshot: { label: string; value: string }[];
-  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" }[];
+  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" | "PRD" }[];
   visualImage?: {
     src: string;
     alt: string;
@@ -297,7 +297,7 @@ export const profile: Profile = {
         ],
         imagePlaceholders: [
           { title: "System Diagram", type: "Diagram" },
-          { title: "Product Requirements", type: "Wireframe" },
+          { title: "Product Requirements", type: "PRD" },
           { title: "Elevator Pitch", type: "UX flow" },
         ],
         productLinks: [

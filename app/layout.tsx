@@ -39,8 +39,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       </head>
       <body className="antialiased">
         {children}
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ? (
-          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        {process.env.NEXT_PUBLIC_GTM_ID ? (
+          <GoogleAnalytics gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         ) : null}
       </body>
     </html>
