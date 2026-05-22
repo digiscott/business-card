@@ -286,8 +286,8 @@ export const profile: Profile = {
           "The Tabletop Game Library Manager is a mobile-first product concept for helping tabletop players organize collections, track play history, and choose the right game for the right group.",
         visual: "tabletopLibrary",
         visualImage: {
-          src: "/images/tabletop-splash.png",
-          alt: "Tabletop Game Library Manager splash screen and collection interface",
+          src: "/images/game_library_hero.png",
+          alt: "Tabletop Game Library Manager hero experience",
         },
         snapshot: [
           { label: "Type", value: "Mobile-first responsive web app concept" },
@@ -296,14 +296,14 @@ export const profile: Profile = {
           { label: "Status", value: "Product strategy and PRD foundation" },
         ],
         imagePlaceholders: [
-          { title: "System Relationships", type: "Diagram" },
-          { title: "Product Requirements Document", type: "Wireframe" },
-          { title: "Hero Experience", type: "UX flow" },
+          { title: "System Diagram", type: "Diagram" },
+          { title: "Product Requirements", type: "Wireframe" },
+          { title: "Elevator Pitch", type: "UX flow" },
         ],
         productLinks: [
-          { label: "System diagram (Mermaid)", href: "/images/tabletop_game_library.mermaid" },
-          { label: "Product Requirements Document", href: "/images/tabletop_collection_manager_prd.pdf" },
-          { label: "Hero Experience", href: "/images/game_library_hero.png" },
+          { label: "System Diagram", href: "/images/tabletop_library_mermaid-diagram.png" },
+          { label: "PRD", href: "/images/tabletop_collection_manager_prd.pdf" },
+          { label: "Elevator Pitch", href: "/documents/tabletop-elevator-pitch.pdf" },
         ],
         sections: [
           {
