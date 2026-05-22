@@ -124,6 +124,14 @@ export default async function UseCasePage({ params }: Props) {
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {useCase.detail.imagePlaceholders?.map((image, index) => {
                 const productLink = useCase.detail.productLinks?.[index];
+                const getAssetIcon = (href?: string) => {
+                  if (!href) return "📄";
+                  if (href.includes(".mermaid")) return "📊";
+                  if (href.includes(".pdf")) return "📋";
+                  if (href.includes(".png") || href.includes(".jpg")) return "🖼️";
+                  return "📄";
+                };
+                
                 return (
                   <figure
                     className="rounded-2xl border border-ink/10 bg-gradient-to-br from-accent/15 to-copper/10 p-4 dark:border-white/10 dark:from-cyan-200/15 dark:to-orange-200/10"
@@ -136,13 +144,19 @@ export default async function UseCasePage({ params }: Props) {
                         rel="noopener noreferrer"
                         className="group block"
                       >
-                        <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-dashed border-ink/20 bg-white/70 text-center text-sm font-bold uppercase tracking-wide text-ink/70 transition hover:bg-accent/10 dark:border-white/25 dark:bg-ink/50 dark:text-white/70 dark:hover:bg-accent/20">
-                          {image.type}
+                        <div className="flex aspect-[4/3] flex-col items-center justify-center rounded-xl border border-solid border-ink/15 bg-white/80 transition hover:bg-accent/10 dark:border-white/20 dark:bg-white/10 dark:hover:bg-accent/20">
+                          <span className="text-5xl">{getAssetIcon(productLink.href)}</span>
+                          <span className="mt-2 text-xs font-bold uppercase tracking-wide text-ink/70 dark:text-white/70">
+                            {image.type}
+                          </span>
                         </div>
                       </a>
                     ) : (
-                      <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-dashed border-ink/20 bg-white/70 text-center text-sm font-bold uppercase tracking-wide text-ink/70 dark:border-white/25 dark:bg-ink/50 dark:text-white/70">
-                        {image.type}
+                      <div className="flex aspect-[4/3] flex-col items-center justify-center rounded-xl border border-solid border-ink/15 bg-white/80 dark:border-white/20 dark:bg-white/10">
+                        <span className="text-5xl">{getAssetIcon()}</span>
+                        <span className="mt-2 text-xs font-bold uppercase tracking-wide text-ink/70 dark:text-white/70">
+                          {image.type}
+                        </span>
                       </div>
                     )}
                     <figcaption className="mt-3 text-sm font-semibold text-ink/80 dark:text-white/80">
