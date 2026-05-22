@@ -297,8 +297,8 @@ export const profile: Profile = {
         ],
         imagePlaceholders: [
           { title: "System Relationships", type: "Diagram" },
-          { title: "Product Requirements Document", type: "Document" },
-          { title: "Hero Experience", type: "Design" },
+          { title: "Product Requirements Document", type: "Wireframe" },
+          { title: "Hero Experience", type: "UX flow" },
         ],
         productLinks: [
           { label: "System diagram (Mermaid)", href: "/images/tabletop_game_library.mermaid" },
