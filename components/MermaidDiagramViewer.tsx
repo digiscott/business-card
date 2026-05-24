@@ -9,6 +9,7 @@ type Props = {
 };
 
 type ViewMode = "preview" | "text";
+type PanPosition = { x: number; y: number };
 type MermaidApi = {
   initialize: (config: { startOnLoad: boolean; securityLevel: "strict"; theme: "default" | "dark" }) => void;
   render: (id: string, definition: string) => Promise<{ svg: string }>;
@@ -69,7 +70,13 @@ export function MermaidDiagramViewer({ definition, title, slug }: Props) {
   const [mode, setMode] = useState<ViewMode>("preview");
   const [themeKey, setThemeKey] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState<PanPosition>({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState<PanPosition>({ x: 0, y: 0 });
+  const [fitWidth, setFitWidth] = useState(1);
   const previewRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new MutationObserver(() => setThemeKey((value) => value + 1));
@@ -77,6 +84,47 @@ export function MermaidDiagramViewer({ definition, title, slug }: Props) {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const delta = -e.deltaY;
+      const scaleFactor = delta > 0 ? 1.1 : 0.9;
+      setZoom((prevZoom) => Math.max(0.5, Math.min(prevZoom * scaleFactor, 5)));
+    };
+
+    const handleMouseDown = (e: MouseEvent) => {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      setPan({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      });
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    container.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      container.removeEventListener("wheel", handleWheel);
+      container.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging, dragStart, pan]);
 
   useEffect(() => {
     if (mode !== "preview" || !previewRef.current) {
@@ -102,6 +150,20 @@ export function MermaidDiagramViewer({ definition, title, slug }: Props) {
 
         if (!cancelled && previewRef.current) {
           previewRef.current.innerHTML = svg;
+
+          // Calculate fit-to-width zoom after rendering
+          const container = containerRef.current;
+          if (container) {
+            const svgElement = previewRef.current.querySelector("svg");
+            if (svgElement) {
+              const svgWidth = svgElement.getBoundingClientRect().width;
+              const containerWidth = container.clientWidth - 32; // Account for padding
+              const calculatedZoom = Math.min(containerWidth / svgWidth, 1);
+              setFitWidth(calculatedZoom);
+              setZoom(calculatedZoom);
+              setPan({ x: 0, y: 0 });
+            }
+          }
         }
       } catch (renderError) {
         if (!cancelled) {
@@ -141,16 +203,68 @@ export function MermaidDiagramViewer({ definition, title, slug }: Props) {
       </div>
 
       {mode === "preview" ? (
-        <div className="mt-6 overflow-auto rounded-2xl border border-ink/10 bg-white p-4 dark:border-white/10 dark:bg-ink/60">
-          {error ? (
-            <p className="text-sm font-semibold text-copper dark:text-orange-200">{error}</p>
-          ) : (
-            <div
-              aria-label={`${title} rendered Mermaid diagram`}
-              className="mermaid-preview min-w-[42rem]"
-              ref={previewRef}
-            />
-          )}
+        <div className="mt-6 flex flex-col gap-3">
+          <div className="flex items-center justify-between gap-2 rounded-2xl border border-ink/10 bg-white/50 p-3 dark:border-white/10 dark:bg-white/5">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-semibold text-ink/60 dark:text-white/60">Zoom: {Math.round(zoom * 100)}%</span>
+              <div className="flex gap-1">
+                <button
+                  onClick={() => setZoom((z) => Math.max(0.5, z - 0.2))}
+                  className="rounded px-2 py-1 text-xs font-bold text-ink/60 transition hover:bg-accent/20 hover:text-accent dark:text-white/60 dark:hover:text-cyan-200"
+                  title="Zoom out"
+                  type="button"
+                >
+                  −
+                </button>
+                <button
+                  onClick={() => setZoom(fitWidth)}
+                  className="rounded px-2 py-1 text-xs font-bold text-ink/60 transition hover:bg-accent/20 hover:text-accent dark:text-white/60 dark:hover:text-cyan-200"
+                  title="Fit to width"
+                  type="button"
+                >
+                  Fit
+                </button>
+                <button
+                  onClick={() => setZoom((z) => Math.min(5, z + 0.2))}
+                  className="rounded px-2 py-1 text-xs font-bold text-ink/60 transition hover:bg-accent/20 hover:text-accent dark:text-white/60 dark:hover:text-cyan-200"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                setZoom(fitWidth);
+                setPan({ x: 0, y: 0 });
+              }}
+              className="rounded px-2 py-1 text-xs font-bold text-ink/60 transition hover:bg-accent/20 hover:text-accent dark:text-white/60 dark:hover:text-cyan-200"
+              title="Reset view to fit width"
+              type="button"
+            >
+              ↺ Reset
+            </button>
+          </div>
+          <div
+            className="overflow-auto rounded-2xl border border-ink/10 bg-white p-4 dark:border-white/10 dark:bg-ink/60"
+            ref={containerRef}
+            style={{ cursor: isDragging ? "grabbing" : "grab", height: "500px" }}
+          >
+            {error ? (
+              <p className="text-sm font-semibold text-copper dark:text-orange-200">{error}</p>
+            ) : (
+              <div
+                className="mermaid-preview inline-block min-w-[42rem]"
+                ref={previewRef}
+                style={{
+                  transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+                  transformOrigin: "0 0",
+                  transition: isDragging ? "none" : "transform 0.1s ease-out",
+                }}
+              />
+            )}
+          </div>
         </div>
       ) : (
         <pre className="mt-6 max-h-[40rem] overflow-auto rounded-2xl border border-ink/10 bg-ink p-4 text-sm leading-6 text-white dark:border-white/10">

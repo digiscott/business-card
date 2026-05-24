@@ -32,7 +32,7 @@ export type UseCaseDetail = {
   headline: string;
   summary: string;
   snapshot: { label: string; value: string }[];
-  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" | "PRD" }[];
+  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" | "PRD" | "Slide Deck" }[];
   visualImage?: {
     src: string;
     alt: string;
@@ -298,7 +298,7 @@ export const profile: Profile = {
         imagePlaceholders: [
           { title: "System Diagram", type: "Diagram" },
           { title: "Product Requirements", type: "PRD" },
-          { title: "Elevator Pitch", type: "UX flow" },
+          { title: "Elevator Pitch", type: "Slide Deck" },
         ],
         productLinks: [
           { label: "System Diagram", href: "/diagrams/tabletop-game-library" },
