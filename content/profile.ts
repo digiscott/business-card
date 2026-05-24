@@ -32,7 +32,7 @@ export type UseCaseDetail = {
   headline: string;
   summary: string;
   snapshot: { label: string; value: string }[];
-  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" | "PRD" }[];
+  imagePlaceholders?: { title: string; type: "UX flow" | "Wireframe" | "Diagram" | "PRD" | "Slide Deck" }[];
   visualImage?: {
     src: string;
     alt: string;
