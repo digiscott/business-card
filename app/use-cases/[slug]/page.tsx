@@ -124,11 +124,21 @@ export default async function UseCasePage({ params }: Props) {
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {useCase.detail.imagePlaceholders?.map((image, index) => {
                 const productLink = useCase.detail.productLinks?.[index];
-                const getAssetIcon = (href?: string) => {
-                  if (!href) return "📄";
-                  if (href.includes(".mermaid")) return "📊";
-                  if (href.includes(".pdf")) return "📋";
-                  if (href.includes(".png") || href.includes(".jpg")) return "🖼️";
+                const getAssetIcon = (href?: string, type?: string) => {
+                  // Prefer explicit types (Slide Deck, Diagram, PRD, UX flow)
+                  if (type === "Slide Deck") return "📽️";
+
+                  if (href) {
+                    if (href.includes(".mermaid") || href.includes("/diagrams/")) return "📊";
+                    if (href.includes(".ppt") || href.includes(".pptx")) return "📽️";
+                    if (href.includes(".pdf")) return "📋";
+                    if (href.includes(".png") || href.includes(".jpg")) return "🖼️";
+                  } else {
+                    if (type === "Diagram") return "📊";
+                    if (type === "PRD") return "📋";
+                    if (type === "UX flow") return "🎞️";
+                  }
+
                   return "📄";
                 };
                 
@@ -145,7 +155,7 @@ export default async function UseCasePage({ params }: Props) {
                         className="group block"
                       >
                         <div className="flex aspect-[4/3] flex-col items-center justify-center rounded-xl border border-solid border-ink/15 bg-white/80 transition hover:bg-accent/10 dark:border-white/20 dark:bg-white/10 dark:hover:bg-accent/20">
-                          <span className="text-5xl">{getAssetIcon(productLink.href)}</span>
+                          <span className="text-5xl">{getAssetIcon(productLink.href, image.type)}</span>
                           <span className="mt-2 text-xs font-bold uppercase tracking-wide text-ink/70 dark:text-white/70">
                             {image.type}
                           </span>
@@ -153,7 +163,7 @@ export default async function UseCasePage({ params }: Props) {
                       </a>
                     ) : (
                       <div className="flex aspect-[4/3] flex-col items-center justify-center rounded-xl border border-solid border-ink/15 bg-white/80 dark:border-white/20 dark:bg-white/10">
-                        <span className="text-5xl">{getAssetIcon()}</span>
+                        <span className="text-5xl">{getAssetIcon(undefined, image.type)}</span>
                         <span className="mt-2 text-xs font-bold uppercase tracking-wide text-ink/70 dark:text-white/70">
                           {image.type}
                         </span>

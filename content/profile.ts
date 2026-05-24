@@ -298,7 +298,7 @@ export const profile: Profile = {
         imagePlaceholders: [
           { title: "System Diagram", type: "Diagram" },
           { title: "Product Requirements", type: "PRD" },
-          { title: "Elevator Pitch", type: "UX flow" },
+          { title: "Elevator Pitch", type: "Slide Deck" },
         ],
         productLinks: [
           { label: "System Diagram", href: "/diagrams/tabletop-game-library" },
