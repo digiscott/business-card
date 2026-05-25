@@ -1,6 +1,6 @@
 import { portfolioUseCase } from "./portfolio";
 import { tabletopUseCase } from "./tabletop";
-import { desktopBuddyUseCase } from "./desktopBuddy";
+// import { desktopBuddyUseCase } from "./desktopBuddy";
 import { examRoomUseCase } from "./examRoom";
 import { practiceEngagementUseCase } from "./practiceEngagement";
 import { precisionEngagementUseCase } from "./precisionEngagement";
@@ -9,7 +9,7 @@ import { precisionEngagementUseCase } from "./precisionEngagement";
 export const useCases = [
   portfolioUseCase,
   tabletopUseCase,
-  desktopBuddyUseCase,
+  // desktopBuddyUseCase,
   examRoomUseCase,
   practiceEngagementUseCase,
   precisionEngagementUseCase,

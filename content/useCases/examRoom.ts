@@ -1,10 +1,14 @@
 import type { UseCase } from "../profile";
 
 export const examRoomUseCase: UseCase = {
-  title: "Exam Room Education",
+  title: "Interactive Exam Room Education",
   description:
     "Supported PatientPoint exam room education experiences by connecting product needs, healthcare content workflows, engineering implementation, and stakeholder expectations for point-of-care patient conversations.",
-  tags: ["Product discovery", "Content workflows", "Healthcare education"],
+  cardImage: {
+    src: "/images/IXR-splash.png",
+    alt: "Interactive Exam Room splash screen with healthcare education artwork",
+  },
+    tags: ["Product discovery", "Content workflows", "Healthcare education"],
   href: "/use-cases/exam-room-education",
   linkLabel: "View use case",
   category: "PatientPoint use case",
@@ -16,6 +20,10 @@ export const examRoomUseCase: UseCase = {
     summary:
       "PatientPoint's exam room experience supports point-of-care education, helping providers explain conditions, procedures, and treatment options through relevant health content.",
     visual: "examRoom",
+    visualImage: {
+      src: "/images/IXR-hero.png",
+      alt: "Interactive Exam Room hero experience",
+    },
     snapshot: [
       { label: "Context", value: "IXR / Interactive Exam Room" },
       { label: "Focus", value: "Product discovery, content workflows, stakeholder alignment" },
