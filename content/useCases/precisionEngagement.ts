@@ -1,9 +1,13 @@
 import type { UseCase } from "../profile";
 
 export const precisionEngagementUseCase: UseCase = {
-  title: "Precision Patient Engagement",
+  title: "PatientPoint Precision",
   description:
-    "Supported product thinking around targeted PatientPoint engagement experiences where data, content, trusted healthcare channels, and internal platform workflows need to align.",
+    "A PatientPoint use case focused on translating targeted patient engagement into the content, metadata, workflow, and platform considerations needed to deliver relevant healthcare messaging across trusted digital touchpoints.",
+  cardImage: {
+    src: "/images/precision-splash.png",
+    alt: "PatientPoint Precision splash illustration showing targeted patient engagement across digital healthcare touchpoints",
+  },
   tags: ["Product strategy", "Platform thinking", "Targeted engagement"],
   href: "/use-cases/precision-patient-engagement",
   linkLabel: "View use case",
@@ -12,20 +16,24 @@ export const precisionEngagementUseCase: UseCase = {
   slug: "precision-patient-engagement",
   detail: {
     eyebrow: "PatientPoint use case",
-    headline: "Making patient engagement more relevant",
+    headline: "Making patient engagement more relevant without losing trust",
     summary:
-      "Precision Patient Engagement explores product thinking around targeted healthcare experiences where data, content, compliance, customer needs, and trusted care channels need to work together.",
+      "PatientPoint Precision extends patient engagement into check-in and patient portal experiences, where patients are already managing appointments, reviewing results, and communicating with their care teams. Scott's product work focused on the operational and platform implications behind that kind of targeted engagement: content readiness, metadata, internal workflows, delivery systems, and stakeholder alignment.",
     visual: "precisionEngagement",
+    visualImage: {
+      src: "/images/precision-hero.png",
+      alt: "PatientPoint Precision hero experience showing personalized healthcare engagement across patient touchpoints",
+    },
     snapshot: [
-      { label: "Context", value: "Precision patient engagement" },
-      { label: "Focus", value: "Product strategy, data-informed workflows, platform thinking" },
-      { label: "Channels", value: "Point-of-care and digital patient touchpoints" },
-      { label: "Contribution", value: "Workflow implications, metadata, content systems, platform alignment" },
+      { label: "Context", value: "PatientPoint Precision / check-in and patient portal engagement" },
+      { label: "Focus", value: "Product strategy, platform alignment, metadata, and workflow implications" },
+      { label: "Core question", value: "How can relevant healthcare messages reach the right patient, in the right context, through trusted care channels?" },
+      { label: "Contribution", value: "Content system thinking, workflow mapping, stakeholder alignment, and implementation support" },
     ],
     imagePlaceholders: [
-      { title: "Primary UX flow", type: "UX flow" },
-      { title: "Interaction wireframe", type: "Wireframe" },
-      { title: "System relationship diagram", type: "Diagram" },
+      { title: "Engagement journey", type: "UX flow" },
+      { title: "Targeting and content workflow", type: "Diagram" },
+      { title: "Platform relationship diagram", type: "Diagram" },
     ],
     productLinks: [
       {
@@ -35,21 +43,28 @@ export const precisionEngagementUseCase: UseCase = {
     ],
     sections: [
       {
-        title: "The problem",
+        title: "The challenge",
         body: [
-          "Healthcare content becomes more valuable when it reaches the right audience in the right context, but that requires strong connections between data, content, targeting, and delivery systems.",
-          "For product teams, this creates a complex challenge: the experience must connect data, content, compliance, targeting logic, customer needs, and patient-facing communication channels.",
+          "Targeted patient engagement depends on more than reaching an audience. The experience has to be timely, relevant, privacy-conscious, and delivered in a trusted healthcare context.",
+          "For product and platform teams, that creates a systems problem. Audience strategy, approved content, campaign rules, metadata, delivery channels, compliance expectations, and internal operations all need to work together before a patient ever sees a message.",
         ],
       },
       {
-        title: "Scott's contribution",
+        title: "Product approach",
         body: [
-          "Scott helped think through the product and workflow implications of delivering more targeted, relevant healthcare content.",
-          "This included understanding how content systems, metadata, internal tools, and delivery platforms needed to support more precise patient engagement workflows.",
+          "Scott helped frame Precision as a product and workflow challenge, not just a distribution channel. The work required thinking through how content and platform systems could support more precise patient engagement while still fitting into healthcare review, deployment, and maintenance processes.",
+          "A key product principle was relevance with guardrails: making engagement more specific and useful while respecting the trust expectations of healthcare settings.",
+        ],
+        bullets: [
+          "Connected patient engagement goals to content and platform workflows",
+          "Considered how metadata and targeting logic affect content readiness",
+          "Mapped implications for internal tools, campaign setup, and delivery systems",
+          "Balanced brand needs, patient relevance, care-context trust, and operational feasibility",
+          "Helped translate a high-level engagement strategy into clearer product and implementation considerations",
         ],
       },
     ],
     outcome:
-      "This work supported a larger strategy of moving from broad content distribution toward more relevant, data-informed patient engagement.",
+      "The work supported a broader shift from broad content distribution toward more relevant, data-informed patient engagement that could be planned, governed, and delivered through trusted healthcare channels.",
   },
 };

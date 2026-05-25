@@ -4,7 +4,11 @@ export const practiceEngagementUseCase: UseCase = {
   title: "Practice Engagement",
   description:
     "Worked on PatientPoint practice engagement capabilities that helped healthcare practices communicate with staff, reinforce goals, and use digital signage as a repeatable communication hub.",
-  tags: ["Workflow design", "Internal tools", "Content deployment"],
+  cardImage: {
+    src: "/images/PWR-splash.png",
+    alt: "Practice Engagement splash screen with digital signage artwork",
+  },
+    tags: ["Workflow design", "Internal tools", "Content deployment"],
   href: "/use-cases/practice-engagement",
   linkLabel: "View use case",
   category: "PatientPoint use case",
@@ -16,6 +20,10 @@ export const practiceEngagementUseCase: UseCase = {
     summary:
       "Practice Engagement work focused on helping healthcare practices communicate more effectively with staff, support practice initiatives, and create more consistent visibility across care teams.",
     visual: "practiceEngagement",
+    visualImage: {
+      src: "/images/PWR-hero.png",
+      alt: "Practice Engagement hero experience",
+    },
     snapshot: [
       { label: "Context", value: "PWR / PracticeWire" },
       { label: "Focus", value: "Product operations, workflow design, internal tools" },
