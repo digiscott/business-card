@@ -61,10 +61,12 @@ describe("profile content", () => {
       expect.arrayContaining([
         "Portfolio Site and AI Career Advocate",
         "Tabletop Game Library Manager",
-        "Desktop Buddy",
-        "Exam Room Education",
+        "Interactive Exam Room Education",
+        "Practice Engagement",
+        "PatientPoint Precision",
       ]),
     );
+    expect(profile.useCases.map((useCase) => useCase.title)).not.toContain("Desktop Buddy");
     expect(profile.useCases.map((useCase) => useCase.title)).not.toContain("Tic Tac Pro Game App");
     expect(profile.useCases.find((useCase) => useCase.title === "Tabletop Game Library Manager")?.cardImage?.src).toBe(
       "/images/tabletop-splash.png",
